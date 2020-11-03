@@ -12,7 +12,8 @@ export default {
   h3: {
     fontWeight: 500,
     fontSize: 24,
-    letterSpacing: '-0.06px'
+    letterSpacing: '-0.06px',
+    fontColor: '#ffffff'
   },
   h4: {
     fontWeight: 500,
