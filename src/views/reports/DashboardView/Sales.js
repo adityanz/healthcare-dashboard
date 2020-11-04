@@ -27,17 +27,17 @@ const Sales = ({ className, ...rest }) => {
   const data = {
     datasets: [
       {
-        backgroundColor: colors.indigo[500],
-        data: [18, 5, 19, 27, 29, 19, 20],
-        label: 'This year'
+        backgroundColor: colors.pink[500],
+        data: [297, 689, 539, 22],
+        label: 'Female'
       },
       {
-        backgroundColor: colors.grey[200],
-        data: [11, 20, 12, 29, 30, 25, 13],
-        label: 'Last year'
+        backgroundColor: colors.blue[200],
+        data: [481, 877,645, 56],
+        label: 'Male'
       }
     ],
-    labels: ['1 Aug', '2 Aug', '3 Aug', '4 Aug', '5 Aug', '6 Aug']
+    labels: ['Chest Pain', 'Pneumonia', 'Sepsis', 'Trauma']
   };
 
   const options = {
@@ -107,10 +107,10 @@ const Sales = ({ className, ...rest }) => {
             size="small"
             variant="text"
           >
-            Last 7 days
+            2001-2002
           </Button>
         )}
-        title="Latest Sales"
+        title="ICU Diseases discovered by Gender"
       />
       <Divider />
       <CardContent>
@@ -130,14 +130,14 @@ const Sales = ({ className, ...rest }) => {
         justifyContent="flex-end"
         p={2}
       >
-        <Button
+        {/* <Button
           color="primary"
           endIcon={<ArrowRightIcon />}
           size="small"
           variant="text"
         >
           Overview
-        </Button>
+        </Button> */}
       </Box>
     </Card>
   );

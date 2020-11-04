@@ -20,8 +20,8 @@ import NavItem from './NavItem';
 
 const user = {
   avatar: '/static/images/avatars/avatar_6.png',
-  jobTitle: 'Senior Developer',
-  name: 'Katarina Smith'
+  jobTitle: 'Aditya, Chia, Jochem, Stokala',
+  name: 'Team 6'
 };
 
 const items = [

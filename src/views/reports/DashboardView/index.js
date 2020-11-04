@@ -38,12 +38,12 @@ const Dashboard = () => {
         >
           <Grid
             item
-            lg={3}
-            sm={6}
-            xl={3}
-            xs={12}
+            lg={3*4}
+            sm={6*4}
+            xl={3*4}
+            xs={12*4}
           >
-            <Budget />
+            {/* <Budget />
           </Grid>
           <Grid
             item
@@ -51,8 +51,8 @@ const Dashboard = () => {
             sm={6}
             xl={3}
             xs={12}
-          >
-            <TotalCustomers />
+          > */}
+            {/* <TotalCustomers />
           </Grid>
           <Grid
             item
@@ -60,8 +60,8 @@ const Dashboard = () => {
             sm={6}
             xl={3}
             xs={12}
-          >
-            <TasksProgress />
+          > */}
+            {/* <TasksProgress />
           </Grid>
           <Grid
             item
@@ -69,8 +69,8 @@ const Dashboard = () => {
             sm={6}
             xl={3}
             xs={12}
-          >
-            <TotalProfit />
+          > */}
+            {/* <TotalProfit />
           </Grid>
           <Grid
             item
@@ -78,17 +78,17 @@ const Dashboard = () => {
             md={12}
             xl={9}
             xs={12}
-          >
+          > */}
             <Sales />
           </Grid>
           <Grid
             item
-            lg={4}
-            md={6}
-            xl={3}
-            xs={12}
+            // lg={1}
+            md={1}
+            // xl={1}
+            // xs={1}
           >
-            <TrafficByDevice />
+            {/* <TrafficByDevice />
           </Grid>
           <Grid
             item
@@ -96,8 +96,8 @@ const Dashboard = () => {
             md={6}
             xl={3}
             xs={12}
-          >
-            <LatestProducts />
+          > */}
+            {/* <LatestProducts />
           </Grid>
           <Grid
             item
@@ -106,7 +106,7 @@ const Dashboard = () => {
             xl={9}
             xs={12}
           >
-            <LatestOrders />
+            <LatestOrders /> */}
           </Grid>
         </Grid>
       </Container>
