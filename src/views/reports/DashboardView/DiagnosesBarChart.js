@@ -20,7 +20,7 @@ const useStyles = makeStyles(() => ({
   root: {}
 }));
 
-const Sales = ({ className, ...rest }) => {
+const DiagnosesBarChart = ({ className, ...rest }) => {
   const classes = useStyles();
   const theme = useTheme();
 
@@ -110,7 +110,7 @@ const Sales = ({ className, ...rest }) => {
             2001-2002
           </Button>
         )}
-        title="ICU Diseases discovered by Gender"
+        title="ICU Diagnoses discovered by Gender"
       />
       <Divider />
       <CardContent>
@@ -143,8 +143,8 @@ const Sales = ({ className, ...rest }) => {
   );
 };
 
-Sales.propTypes = {
+DiagnosesBarChart.propTypes = {
   className: PropTypes.string
 };
 
-export default Sales;
+export default DiagnosesBarChart;

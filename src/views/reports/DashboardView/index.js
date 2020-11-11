@@ -5,13 +5,14 @@ import {
   makeStyles
 } from '@material-ui/core';
 import Page from 'src/components/Page';
-import Budget from './Budget';
+import TotalPatients from './TotalPatients';
 import LatestOrders from './LatestOrders';
 import LatestProducts from './LatestProducts';
-import Sales from './Sales';
-import TasksProgress from './TasksProgress';
-import TotalCustomers from './TotalCustomers';
-import TotalProfit from './TotalProfit';
+import DiagnosesBarChart from './DiagnosesBarChart';
+import TotalDiagnoses from './TotalDiagnoses';
+import TotalAdmissions from './TotalAdmissions';
+import MostCommon from './MostCommon';
+import LeastCommon from './LeastCommon';
 import TrafficByDevice from './TrafficByDevice';
 
 const useStyles = makeStyles((theme) => ({
@@ -38,12 +39,48 @@ const Dashboard = () => {
         >
           <Grid
             item
-            lg={3*4}
-            sm={6*4}
-            xl={3*4}
-            xs={12*4}
+            lg={3}
+            sm={6}
+            xl={3}
+            xs={12}
           >
-            {/* <Budget />
+           <TotalPatients />
+          </Grid>
+          <Grid
+            item
+            lg={2}
+            sm={3}
+            xl={1}
+            xs={15}
+          >
+           <TotalAdmissions />
+          </Grid>
+          <Grid
+            item
+            lg={2}
+            sm={3}
+            xl={1}
+            xs={15}
+          >
+           <TotalDiagnoses />
+          </Grid>
+          <Grid
+            item
+            lg={2}
+            sm={3}
+            xl={1}
+            xs={15}
+          >
+           <MostCommon />
+          </Grid>
+          <Grid
+            item
+            lg={2}
+            sm={3}
+            xl={1}
+            xs={15}
+          >
+           <LeastCommon />
           </Grid>
           <Grid
             item
@@ -51,42 +88,15 @@ const Dashboard = () => {
             sm={6}
             xl={3}
             xs={12}
-          > */}
-            {/* <TotalCustomers />
+          >
+            <DiagnosesBarChart />
           </Grid>
           <Grid
             item
-            lg={3}
-            sm={6}
+            lg={4}
+            md={6}
             xl={3}
             xs={12}
-          > */}
-            {/* <TasksProgress />
-          </Grid>
-          <Grid
-            item
-            lg={3}
-            sm={6}
-            xl={3}
-            xs={12}
-          > */}
-            {/* <TotalProfit />
-          </Grid>
-          <Grid
-            item
-            lg={8}
-            md={12}
-            xl={9}
-            xs={12}
-          > */}
-            <Sales />
-          </Grid>
-          <Grid
-            item
-            // lg={1}
-            md={1}
-            // xl={1}
-            // xs={1}
           >
             {/* <TrafficByDevice />
           </Grid>

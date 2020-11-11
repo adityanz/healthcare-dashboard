@@ -11,28 +11,28 @@ import {
   colors,
   makeStyles
 } from '@material-ui/core';
-import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
-import PeopleIcon from '@material-ui/icons/PeopleOutlined';
+import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
+import MoneyIcon from '@material-ui/icons/Money';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     height: '100%'
   },
   avatar: {
-    backgroundColor: colors.green[600],
+    backgroundColor: colors.red[600],
     height: 56,
     width: 56
   },
   differenceIcon: {
-    color: colors.green[900]
+    color: colors.red[900]
   },
   differenceValue: {
-    color: colors.green[900],
+    color: colors.red[900],
     marginRight: theme.spacing(1)
   }
 }));
 
-const TotalCustomers = ({ className, ...rest }) => {
+const TotalPatients = ({ className, ...rest }) => {
   const classes = useStyles();
 
   return (
@@ -52,18 +52,18 @@ const TotalCustomers = ({ className, ...rest }) => {
               gutterBottom
               variant="h6"
             >
-              TOTAL CUSTOMERS
+              TOTAL NUMBER OF PATIENTS
             </Typography>
             <Typography
               color="textPrimary"
               variant="h3"
             >
-              1,600
+              $24,000
             </Typography>
           </Grid>
           <Grid item>
             <Avatar className={classes.avatar}>
-              <PeopleIcon />
+              <MoneyIcon />
             </Avatar>
           </Grid>
         </Grid>
@@ -72,18 +72,11 @@ const TotalCustomers = ({ className, ...rest }) => {
           display="flex"
           alignItems="center"
         >
-          <ArrowUpwardIcon className={classes.differenceIcon} />
-          <Typography
-            className={classes.differenceValue}
-            variant="body2"
-          >
-            16%
-          </Typography>
           <Typography
             color="textSecondary"
-            variant="caption"
+            variant="body2"
           >
-            Since last month
+            2001 - 2012
           </Typography>
         </Box>
       </CardContent>
@@ -91,8 +84,8 @@ const TotalCustomers = ({ className, ...rest }) => {
   );
 };
 
-TotalCustomers.propTypes = {
+TotalPatients.propTypes = {
   className: PropTypes.string
 };
 
-export default TotalCustomers;
+export default TotalPatients;
