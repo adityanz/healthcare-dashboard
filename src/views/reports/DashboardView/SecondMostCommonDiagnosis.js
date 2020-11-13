@@ -7,25 +7,23 @@ import {
   Card,
   CardContent,
   Grid,
-  LinearProgress,
   Typography,
   makeStyles,
   colors
 } from '@material-ui/core';
-import InsertChartIcon from '@material-ui/icons/InsertChartOutlined';
 
 const useStyles = makeStyles(() => ({
   root: {
     height: '100%'
   },
   avatar: {
-    backgroundColor: colors.orange[600],
+    backgroundColor: colors.indigo[600],
     height: 56,
     width: 56
   }
 }));
 
-const TotalDiagnoses = ({ className, ...rest }) => {
+const SecondMostCommonDiagnosis = ({ className, ...rest }) => {
   const classes = useStyles();
 
   return (
@@ -45,19 +43,14 @@ const TotalDiagnoses = ({ className, ...rest }) => {
               gutterBottom
               variant="h6"
             >
-              NUMBER OF DIFFERENT DIAGNOSES
+              SECOND MOST COMMON DIAGNOSIS
             </Typography>
             <Typography
               color="textPrimary"
               variant="h3"
             >
-              75.5%
+              CONGESTIVE HEART FAILURE
             </Typography>
-          </Grid>
-          <Grid item>
-            <Avatar className={classes.avatar}>
-              <InsertChartIcon />
-            </Avatar>
           </Grid>
         </Grid>
         <Box
@@ -69,7 +62,7 @@ const TotalDiagnoses = ({ className, ...rest }) => {
             color="textSecondary"
             variant="body2"
           >
-            2001 - 2012
+            13,111 cases
           </Typography>
         </Box>
       </CardContent>
@@ -77,8 +70,8 @@ const TotalDiagnoses = ({ className, ...rest }) => {
   );
 };
 
-TotalDiagnoses.propTypes = {
+SecondMostCommonDiagnosis.propTypes = {
   className: PropTypes.string
 };
 
-export default TotalDiagnoses;
+export default SecondMostCommonDiagnosis;

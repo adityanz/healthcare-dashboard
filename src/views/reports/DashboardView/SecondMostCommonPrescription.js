@@ -8,29 +8,22 @@ import {
   CardContent,
   Grid,
   Typography,
-  colors,
-  makeStyles
+  makeStyles,
+  colors
 } from '@material-ui/core';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   root: {
     height: '100%'
   },
   avatar: {
-    backgroundColor: colors.green[600],
+    backgroundColor: colors.indigo[600],
     height: 56,
     width: 56
-  },
-  differenceIcon: {
-    color: colors.green[900]
-  },
-  differenceValue: {
-    color: colors.green[900],
-    marginRight: theme.spacing(1)
   }
 }));
 
-const TotalAdmissions = ({ className, ...rest }) => {
+const SecondMostCommonPrescription = ({ className, ...rest }) => {
   const classes = useStyles();
 
   return (
@@ -50,35 +43,23 @@ const TotalAdmissions = ({ className, ...rest }) => {
               gutterBottom
               variant="h6"
             >
-              NUMBER OF ADMISSIONS
+              SECOND MOST COMMON PRESCRIPTION
             </Typography>
             <Typography
               color="textPrimary"
               variant="h3"
             >
-              58,976
+              INSULINE
             </Typography>
           </Grid>
         </Grid>
-        <Box
-          mt={2}
-          display="flex"
-          alignItems="center"
-        >
-          <Typography
-            color="textSecondary"
-            variant="body2"
-          >
-            2001 - 2012
-          </Typography>
-        </Box>
       </CardContent>
     </Card>
   );
 };
 
-TotalAdmissions.propTypes = {
+SecondMostCommonPrescription.propTypes = {
   className: PropTypes.string
 };
 
-export default TotalAdmissions;
+export default SecondMostCommonPrescription;

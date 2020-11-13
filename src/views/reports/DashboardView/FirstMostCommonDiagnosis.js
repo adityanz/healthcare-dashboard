@@ -3,6 +3,7 @@ import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import {
   Avatar,
+  Box,
   Card,
   CardContent,
   Grid,
@@ -10,7 +11,6 @@ import {
   makeStyles,
   colors
 } from '@material-ui/core';
-import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -23,7 +23,7 @@ const useStyles = makeStyles(() => ({
   }
 }));
 
-const MostCommon = ({ className, ...rest }) => {
+const FirstMostCommonDiagnosis = ({ className, ...rest }) => {
   const classes = useStyles();
 
   return (
@@ -49,22 +49,29 @@ const MostCommon = ({ className, ...rest }) => {
               color="textPrimary"
               variant="h3"
             >
-              $23,200
+              HYPERTENSION
             </Typography>
           </Grid>
-          <Grid item>
-            <Avatar className={classes.avatar}>
-              <AttachMoneyIcon />
-            </Avatar>
-          </Grid>
         </Grid>
+        <Box
+          mt={2}
+          display="flex"
+          alignItems="center"
+        >
+          <Typography
+            color="textSecondary"
+            variant="body2"
+          >
+            20,703 cases
+          </Typography>
+        </Box>
       </CardContent>
     </Card>
   );
 };
 
-MostCommon.propTypes = {
+FirstMostCommonDiagnosis.propTypes = {
   className: PropTypes.string
 };
 
-export default MostCommon;
+export default FirstMostCommonDiagnosis;

@@ -3,27 +3,28 @@ import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import {
   Avatar,
+  Box,
   Card,
   CardContent,
   Grid,
+  LinearProgress,
   Typography,
   makeStyles,
   colors
 } from '@material-ui/core';
-import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 
 const useStyles = makeStyles(() => ({
   root: {
     height: '100%'
   },
   avatar: {
-    backgroundColor: colors.indigo[600],
+    backgroundColor: colors.orange[600],
     height: 56,
     width: 56
   }
 }));
 
-const LeastCommon = ({ className, ...rest }) => {
+const TotalUniqueDiagnoses = ({ className, ...rest }) => {
   const classes = useStyles();
 
   return (
@@ -43,28 +44,35 @@ const LeastCommon = ({ className, ...rest }) => {
               gutterBottom
               variant="h6"
             >
-              LEAST COMMON DIAGNOSIS
+              NUMBER OF UNIQUE DIAGNOSES
             </Typography>
             <Typography
               color="textPrimary"
               variant="h3"
             >
-              $23,200
+              6,984
             </Typography>
           </Grid>
-          <Grid item>
-            <Avatar className={classes.avatar}>
-              <AttachMoneyIcon />
-            </Avatar>
-          </Grid>
         </Grid>
+        <Box
+          mt={2}
+          display="flex"
+          alignItems="center"
+        >
+          <Typography
+            color="textSecondary"
+            variant="body2"
+          >
+            2001 - 2012
+          </Typography>
+        </Box>
       </CardContent>
     </Card>
   );
 };
 
-LeastCommon.propTypes = {
+TotalUniqueDiagnoses.propTypes = {
   className: PropTypes.string
 };
 
-export default LeastCommon;
+export default TotalUniqueDiagnoses;

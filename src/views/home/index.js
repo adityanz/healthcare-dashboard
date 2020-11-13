@@ -5,7 +5,7 @@ import {
   makeStyles
 } from '@material-ui/core';
 import Page from 'src/components/Page';
-import AboutUs from './AboutUs';
+import Home from './HomeView';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -22,19 +22,19 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const About = () => {
+const Home = () => {
   const classes = useStyles();
 
   return (
     <Page
       className={classes.root}
-      title="About Us"
+      title="Home"
     >
       <Container maxWidth={false}>
-      <AboutUs />
+      <HomeView />
       </Container>
     </Page>
   );
 };
 
-export default About;
+export default Home;

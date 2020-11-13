@@ -6,14 +6,16 @@ import {
 } from '@material-ui/core';
 import Page from 'src/components/Page';
 import TotalPatients from './TotalPatients';
-import LatestOrders from './LatestOrders';
-import LatestProducts from './LatestProducts';
-import DiagnosesBarChart from './DiagnosesBarChart';
-import TotalDiagnoses from './TotalDiagnoses';
 import TotalAdmissions from './TotalAdmissions';
-import MostCommon from './MostCommon';
-import LeastCommon from './LeastCommon';
-import TrafficByDevice from './TrafficByDevice';
+import AverageStay from './AverageStay';
+import TotalUniqueDiagnoses from './TotalUniqueDiagnoses';
+import FirstMostCommonDiagnosis from './FirstMostCommonDiagnosis';
+import SecondMostCommonDiagnosis from './SecondMostCommonDiagnosis';
+import TotalPrescriptions from './TotalPrescriptions';
+import TotalUniquePrescriptions from './TotalUniquePrescriptions';
+import FirstMostCommonPrescription from './FirstMostCommonPrescription';
+import SecondMostCommonPrescription from './SecondMostCommonPrescription';
+import DiagnosesBarChart from './DiagnosesBarChart';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -48,39 +50,12 @@ const Dashboard = () => {
           </Grid>
           <Grid
             item
-            lg={2}
-            sm={3}
-            xl={1}
-            xs={15}
+            lg={3}
+            sm={6}
+            xl={3}
+            xs={12}
           >
            <TotalAdmissions />
-          </Grid>
-          <Grid
-            item
-            lg={2}
-            sm={3}
-            xl={1}
-            xs={15}
-          >
-           <TotalDiagnoses />
-          </Grid>
-          <Grid
-            item
-            lg={2}
-            sm={3}
-            xl={1}
-            xs={15}
-          >
-           <MostCommon />
-          </Grid>
-          <Grid
-            item
-            lg={2}
-            sm={3}
-            xl={1}
-            xs={15}
-          >
-           <LeastCommon />
           </Grid>
           <Grid
             item
@@ -89,15 +64,88 @@ const Dashboard = () => {
             xl={3}
             xs={12}
           >
-            <DiagnosesBarChart />
+           <AverageStay />
           </Grid>
           <Grid
             item
-            lg={4}
-            md={6}
+            lg={3}
+            sm={6}
+            xl={3}
+            xs={12}
+         >
+           <TotalUniqueDiagnoses />
+          </Grid>
+          <Grid
+            item
+            lg={3}
+            sm={6}
             xl={3}
             xs={12}
           >
+           <FirstMostCommonDiagnosis />
+          </Grid>
+          <Grid
+            item
+            lg={3}
+            sm={6}
+            xl={3}
+            xs={12}
+          >
+           <SecondMostCommonDiagnosis />
+          </Grid>
+          <Grid
+            item
+            lg={3}
+            sm={6}
+            xl={3}
+            xs={12}
+          >
+           <TotalPrescriptions />
+          </Grid>
+          <Grid
+           item
+           lg={3}
+           sm={6}
+           xl={3}
+           xs={12}
+         >
+          <TotalUniquePrescriptions />
+         </Grid>
+         <Grid
+          item
+          lg={3}
+          sm={6}
+          xl={3}
+          xs={12}
+         >
+          <FirstMostCommonPrescription />
+         </Grid>
+         <Grid
+          item
+          lg={3}
+          sm={6}
+          xl={3}
+          xs={12}
+         >
+          <SecondMostCommonPrescription />
+         </Grid>
+         <Grid
+          item
+          lg={3}
+          sm={6}
+          xl={3}
+          xs={12}
+         >
+          <DiagnosesBarChart />
+         </Grid>
+         <Grid
+            item
+            lg={3}
+            sm={6}
+            xl={3}
+            xs={12}
+
+         >
             {/* <TrafficByDevice />
           </Grid>
           <Grid

@@ -17,20 +17,20 @@ const useStyles = makeStyles((theme) => ({
     height: '100%'
   },
   avatar: {
-    backgroundColor: colors.green[600],
+    backgroundColor: colors.red[600],
     height: 56,
     width: 56
   },
   differenceIcon: {
-    color: colors.green[900]
+    color: colors.red[900]
   },
   differenceValue: {
-    color: colors.green[900],
+    color: colors.red[900],
     marginRight: theme.spacing(1)
   }
 }));
 
-const TotalAdmissions = ({ className, ...rest }) => {
+const TotalUniquePrescriptions = ({ className, ...rest }) => {
   const classes = useStyles();
 
   return (
@@ -50,35 +50,23 @@ const TotalAdmissions = ({ className, ...rest }) => {
               gutterBottom
               variant="h6"
             >
-              NUMBER OF ADMISSIONS
+              NUMBER OF UNIQUE PRESCRIPTIONS
             </Typography>
             <Typography
               color="textPrimary"
               variant="h3"
             >
-              58,976
+              4,525
             </Typography>
           </Grid>
         </Grid>
-        <Box
-          mt={2}
-          display="flex"
-          alignItems="center"
-        >
-          <Typography
-            color="textSecondary"
-            variant="body2"
-          >
-            2001 - 2012
-          </Typography>
-        </Box>
       </CardContent>
     </Card>
   );
 };
 
-TotalAdmissions.propTypes = {
+TotalUniquePrescriptions.propTypes = {
   className: PropTypes.string
 };
 
-export default TotalAdmissions;
+export default TotalUniquePrescriptions;

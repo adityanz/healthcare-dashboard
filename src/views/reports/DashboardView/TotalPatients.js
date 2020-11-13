@@ -11,8 +11,6 @@ import {
   colors,
   makeStyles
 } from '@material-ui/core';
-import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
-import MoneyIcon from '@material-ui/icons/Money';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -52,19 +50,14 @@ const TotalPatients = ({ className, ...rest }) => {
               gutterBottom
               variant="h6"
             >
-              TOTAL NUMBER OF PATIENTS
+              NUMBER OF PATIENTS
             </Typography>
             <Typography
               color="textPrimary"
               variant="h3"
             >
-              $24,000
+              46,520
             </Typography>
-          </Grid>
-          <Grid item>
-            <Avatar className={classes.avatar}>
-              <MoneyIcon />
-            </Avatar>
           </Grid>
         </Grid>
         <Box

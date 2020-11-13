@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   Box,
   Container,
@@ -61,6 +62,10 @@ const HomeView = () => {
       </Box>
     </Page>
   );
+};
+
+HomeView.propTypes = {
+  className: PropTypes.string
 };
 
 export default HomeView;
