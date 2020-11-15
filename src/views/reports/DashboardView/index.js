@@ -46,7 +46,7 @@ const Dashboard = () => {
             xl={3}
             xs={12}
           >
-           <TotalPatients />
+            <TotalPatients />
           </Grid>
           <Grid
             item
@@ -55,7 +55,7 @@ const Dashboard = () => {
             xl={3}
             xs={12}
           >
-           <TotalAdmissions />
+            <TotalAdmissions />
           </Grid>
           <Grid
             item
@@ -64,16 +64,7 @@ const Dashboard = () => {
             xl={3}
             xs={12}
           >
-           <AverageStay />
-          </Grid>
-          <Grid
-            item
-            lg={3}
-            sm={6}
-            xl={3}
-            xs={12}
-         >
-           <TotalUniqueDiagnoses />
+            <AverageStay />
           </Grid>
           <Grid
             item
@@ -82,7 +73,7 @@ const Dashboard = () => {
             xl={3}
             xs={12}
           >
-           <FirstMostCommonDiagnosis />
+            <TotalUniqueDiagnoses />
           </Grid>
           <Grid
             item
@@ -91,7 +82,7 @@ const Dashboard = () => {
             xl={3}
             xs={12}
           >
-           <SecondMostCommonDiagnosis />
+            <FirstMostCommonDiagnosis />
           </Grid>
           <Grid
             item
@@ -100,52 +91,61 @@ const Dashboard = () => {
             xl={3}
             xs={12}
           >
-           <TotalPrescriptions />
+            <SecondMostCommonDiagnosis />
           </Grid>
           <Grid
-           item
-           lg={3}
-           sm={6}
-           xl={3}
-           xs={12}
-         >
-          <TotalUniquePrescriptions />
-         </Grid>
-         <Grid
-          item
-          lg={3}
-          sm={6}
-          xl={3}
-          xs={12}
-         >
-          <FirstMostCommonPrescription />
-         </Grid>
-         <Grid
-          item
-          lg={3}
-          sm={6}
-          xl={3}
-          xs={12}
-         >
-          <SecondMostCommonPrescription />
-         </Grid>
-         <Grid
-          item
-          lg={3}
-          sm={6}
-          xl={3}
-          xs={12}
-         >
-          <DiagnosesBarChart />
-         </Grid>
-         <Grid
             item
             lg={3}
             sm={6}
             xl={3}
             xs={12}
+          >
+            <TotalPrescriptions />
+          </Grid>
+          <Grid
+            item
+            lg={3}
+            sm={6}
+            xl={3}
+            xs={12}
+          >
+            <TotalUniquePrescriptions />
+          </Grid>
+          <Grid
+            item
+            lg={3}
+            sm={6}
+            xl={3}
+            xs={12}
+          >
+            <FirstMostCommonPrescription />
+          </Grid>
+          <Grid
+            item
+            lg={3}
+            sm={6}
+            xl={3}
+            xs={12}
+          >
+            <SecondMostCommonPrescription />
+          </Grid>
+          <Grid
+            item
+            lg={3}
+            sm={6}
+            xl={3}
+            xs={12}
+          >
+            <DiagnosesBarChart />
+          </Grid>
+          <Grid
+            item
+            lg={30}
+            sm={30}
+            xl={30}
+            xs={30}
 
-         >
+          >
             {/* <TrafficByDevice />
           </Grid>
           <Grid

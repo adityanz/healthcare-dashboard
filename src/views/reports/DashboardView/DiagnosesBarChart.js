@@ -1,7 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import { Bar } from 'react-chartjs-2';
+import GroupedBarChart from './GroupedBarChart';
 import {
   Box,
   Button,
@@ -15,6 +15,10 @@ import {
 } from '@material-ui/core';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import ArrowRightIcon from '@material-ui/icons/ArrowRight';
+import CircularProgress from '@material-ui/core/CircularProgress';
+import Select from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
+
 
 const useStyles = makeStyles(() => ({
   root: {}
@@ -24,76 +28,27 @@ const DiagnosesBarChart = ({ className, ...rest }) => {
   const classes = useStyles();
   const theme = useTheme();
 
-  const data = {
-    datasets: [
-      {
-        backgroundColor: colors.pink[500],
-        data: [297, 689, 539, 22],
-        label: 'Female'
-      },
-      {
-        backgroundColor: colors.blue[200],
-        data: [481, 877,645, 56],
-        label: 'Male'
-      }
-    ],
-    labels: ['Chest Pain', 'Pneumonia', 'Sepsis', 'Trauma']
-  };
+  let [loading, setLoading] = React.useState(true);
+  let [data, setData] = React.useState([]);
+  let [selector, setSelector] = React.useState('gender');
+  
+  console.log(selector)
+  React.useEffect(() => {
+    let apiUrl = 'https://visualizing-healthcare-data.wm.r.appspot.com/diagnosis_dist/' + selector + '/';
+    fetch(apiUrl)
+      .then((response) => response.json())
+      .then(result => {
+        setData(result);
+        setLoading(false);
+      })
 
-  const options = {
-    animation: false,
-    cornerRadius: 20,
-    layout: { padding: 0 },
-    legend: { display: false },
-    maintainAspectRatio: false,
-    responsive: true,
-    scales: {
-      xAxes: [
-        {
-          barThickness: 12,
-          maxBarThickness: 10,
-          barPercentage: 0.5,
-          categoryPercentage: 0.5,
-          ticks: {
-            fontColor: theme.palette.text.secondary
-          },
-          gridLines: {
-            display: false,
-            drawBorder: false
-          }
-        }
-      ],
-      yAxes: [
-        {
-          ticks: {
-            fontColor: theme.palette.text.secondary,
-            beginAtZero: true,
-            min: 0
-          },
-          gridLines: {
-            borderDash: [2],
-            borderDashOffset: [2],
-            color: theme.palette.divider,
-            drawBorder: false,
-            zeroLineBorderDash: [2],
-            zeroLineBorderDashOffset: [2],
-            zeroLineColor: theme.palette.divider
-          }
-        }
-      ]
-    },
-    tooltips: {
-      backgroundColor: theme.palette.background.default,
-      bodyFontColor: theme.palette.text.secondary,
-      borderColor: theme.palette.divider,
-      borderWidth: 1,
-      enabled: true,
-      footerFontColor: theme.palette.text.secondary,
-      intersect: false,
-      mode: 'index',
-      titleFontColor: theme.palette.text.primary
-    }
-  };
+  }, [selector])
+  console.log(data)
+
+  const handleChange = (event) => {
+    setLoading(true)
+    setSelector(event.target.value);
+   };
 
   return (
     <Card
@@ -102,27 +57,31 @@ const DiagnosesBarChart = ({ className, ...rest }) => {
     >
       <CardHeader
         action={(
-          <Button
+
+                  <Select
             endIcon={<ArrowDropDownIcon />}
-            size="small"
-            variant="text"
-          >
-            2001-2002
-          </Button>
+          value={selector}
+          onChange={handleChange}
+        >
+          <MenuItem value={"gender"}>Gender</MenuItem>
+            <MenuItem value={"religion"}>Religion</MenuItem>
+            <MenuItem value={"ethnicity"}>Ethnicity</MenuItem>
+            <MenuItem value={"language"}>Language</MenuItem>
+            <MenuItem value={"insurance"}>Insurance</MenuItem>
+            <MenuItem value={"maritalstatus"}>Marital Status</MenuItem>
+        </Select>
         )}
-        title="ICU Diagnoses discovered by Gender"
+        title="ICU Diagnoses"
       />
       <Divider />
-      <CardContent>
-        <Box
+      <CardContent id={"gbc"}>
+        {/* <Box
+          id={"gbc"}
           height={400}
           position="relative"
-        >
-          <Bar
-            data={data}
-            options={options}
-          />
-        </Box>
+        > */}
+        {!loading ? <GroupedBarChart data={data} selector={selector} size={[400, 800]} /> : <CircularProgress />}
+        {/* </Box> */}
       </CardContent>
       <Divider />
       <Box
