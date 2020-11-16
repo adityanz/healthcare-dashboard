@@ -1,6 +1,7 @@
 import React from 'react';
 import * as d3 from 'd3';
 import './GroupedBarChart.css'
+import * as d3l from 'd3-svg-legend'
 
 class GroupedBarChart extends React.Component {
     constructor(props) {
@@ -17,7 +18,7 @@ class GroupedBarChart extends React.Component {
         const owidth = this.props.size[0]
         const oheight = this.props.size[1]
 
-        var margin = { top: 20, right: 0, bottom: 20, left: 40 },
+        var margin = { top: 20, right: 0, bottom: 20, left: 70 },
             width = owidth - margin.left - margin.right,
             height = oheight - margin.top - margin.bottom;
 
@@ -84,7 +85,9 @@ class GroupedBarChart extends React.Component {
         var yScale = d3.scaleLinear()
             .range([height, 0]); // output
 
-        var color = d3.scaleOrdinal(d3.schemeCategory10)
+        var color = d3.scaleOrdinal()
+        .domain(gname)
+        .range(d3.schemeCategory10)
 
         console.log("graphdata", data)
 
@@ -104,6 +107,21 @@ class GroupedBarChart extends React.Component {
             .attr("class", "y axis")
             .call(d3.axisLeft(yScale));
 
+
+        var legend = d3l.legendColor()
+            .scale(color)
+            .shape('circle')
+            .orient('vertical')
+
+
+        svg.append("g")
+            .attr("class", "legend")
+            .attr("transform", "translate(" + (owidth-350) + ", " + 20+")");
+
+
+        svg.select(".legend")
+            .call(legend);
+
         var slice = svg.selectAll(".slice")
             .data(data)
             .enter().append("g")
@@ -118,6 +136,7 @@ class GroupedBarChart extends React.Component {
             .attr("x", function (d) { { console.log("x", d.distribution) } return xScale1(d.distribution); })
             .attr("y", function (d) { { console.log(d.value) } return yScale(d.value); })
             .style("fill", function (d) { return color(d.distribution) })
+
             .attr("height", function (d) { return height - yScale(d.value); })
             .on("mouseover", function (event, d) {
                 d3.select(this).transition()
@@ -153,6 +172,8 @@ class GroupedBarChart extends React.Component {
             .style("fill", function (d) { return color(d.distribution) })
             .text(function (d) { return d.distribution })
             .attr("text-anchor", "left")
+
+
 
         const xmid = xScale.range()[0] + (xScale.range()[1] - xScale.range()[0]) / 2.0;
         const ymid = yScale.range()[0] + (yScale.range()[1] - yScale.range()[0]) / 2.0;

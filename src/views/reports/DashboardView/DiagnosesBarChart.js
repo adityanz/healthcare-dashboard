@@ -71,7 +71,7 @@ const DiagnosesBarChart = ({ className, ...rest }) => {
             <MenuItem value={"maritalstatus"}>Marital Status</MenuItem>
         </Select>
         )}
-        title="ICU Diagnoses"
+        title="ICU Diagnoses  "
       />
       <Divider />
       <CardContent id={"gbc"}>
@@ -80,7 +80,7 @@ const DiagnosesBarChart = ({ className, ...rest }) => {
           height={400}
           position="relative"
         > */}
-        {!loading ? <GroupedBarChart data={data} selector={selector} size={[400, 800]} /> : <CircularProgress />}
+        {!loading ? <GroupedBarChart data={data} selector={selector} size={[1200, 800]} /> : <CircularProgress />}
         {/* </Box> */}
       </CardContent>
       <Divider />

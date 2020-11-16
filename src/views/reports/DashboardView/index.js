@@ -135,15 +135,6 @@ const Dashboard = () => {
             sm={6}
             xl={3}
             xs={12}
-          >
-            <DiagnosesBarChart />
-          </Grid>
-          <Grid
-            item
-            lg={30}
-            sm={30}
-            xl={30}
-            xs={30}
 
           >
             {/* <TrafficByDevice />
@@ -167,6 +158,19 @@ const Dashboard = () => {
             <LatestOrders /> */}
           </Grid>
         </Grid>
+      </Container>
+      <Container maxWidth={false}>
+        <Grid
+          container
+          spacing={3}
+        >
+          <Grid
+            item
+          >
+            <DiagnosesBarChart />
+          </Grid>
+        </Grid>
+
       </Container>
     </Page>
   );
