@@ -16,6 +16,7 @@ import TotalUniquePrescriptions from './TotalUniquePrescriptions';
 import FirstMostCommonPrescription from './FirstMostCommonPrescription';
 import SecondMostCommonPrescription from './SecondMostCommonPrescription';
 import DiagnosesBarChart from './DiagnosesBarChart';
+import DiagnosesBubbleChart from './DiagnosesBubbleChart';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -168,6 +169,20 @@ const Dashboard = () => {
             item
           >
             <DiagnosesBarChart />
+          </Grid>
+        </Grid>
+
+      </Container>
+
+      <Container maxWidth={false}>
+        <Grid
+          container
+          spacing={3}
+        >
+          <Grid
+            item
+          >
+            <DiagnosesBubbleChart />
           </Grid>
         </Grid>
 
