@@ -11,13 +11,16 @@ import {
   Divider,
   useTheme,
   makeStyles,
-  colors
+  colors,
+  CardActions
 } from '@material-ui/core';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import ArrowRightIcon from '@material-ui/icons/ArrowRight';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Switch from '@material-ui/core/Switch';
 
 
 const useStyles = makeStyles(() => ({
@@ -31,6 +34,10 @@ const DiagnosesBarChart = ({ className, ...rest }) => {
   let [loading, setLoading] = React.useState(true);
   let [data, setData] = React.useState([]);
   let [selector, setSelector] = React.useState('gender');
+  let [scale, setScale] = React.useState({
+    logarithmic: false,
+  });
+
   
   console.log(selector)
   React.useEffect(() => {
@@ -42,13 +49,18 @@ const DiagnosesBarChart = ({ className, ...rest }) => {
         setLoading(false);
       })
 
-  }, [selector])
+  }, [selector, scale])
   console.log(data)
 
-  const handleChange = (event) => {
+  const handleCategory = (event) => {
     setLoading(true)
     setSelector(event.target.value);
    };
+
+  const handleScale = (event) => {
+    setScale({ ...scale, [event.target.name]: event.target.checked });
+  };
+
 
   return (
     <Card
@@ -58,10 +70,10 @@ const DiagnosesBarChart = ({ className, ...rest }) => {
       <CardHeader
         action={(
 
-                  <Select
+        <Select
             endIcon={<ArrowDropDownIcon />}
           value={selector}
-          onChange={handleChange}
+          onChange={handleCategory}
         >
           <MenuItem value={"gender"}>Gender</MenuItem>
             <MenuItem value={"religion"}>Religion</MenuItem>
@@ -70,9 +82,31 @@ const DiagnosesBarChart = ({ className, ...rest }) => {
             <MenuItem value={"insurance"}>Insurance</MenuItem>
             <MenuItem value={"maritalstatus"}>Marital Status</MenuItem>
         </Select>
+
+
+        
         )}
         title="ICU Diagnoses  "
+
+        
       />
+      <CardActions>
+
+
+          <FormControlLabel
+            control={
+              <Switch
+                checked={scale.logarithmic}
+                onChange={handleScale}
+                name="logarithmic"
+                color="primary"
+              />
+            }
+            label="Logarithmic"
+          />
+
+  
+      </CardActions>
       <Divider />
       <CardContent id={"gbc"}>
         {/* <Box
@@ -80,7 +114,7 @@ const DiagnosesBarChart = ({ className, ...rest }) => {
           height={400}
           position="relative"
         > */}
-        {!loading ? <GroupedBarChart data={data} selector={selector} size={[1200, 800]} /> : <CircularProgress />}
+        {!loading ? <GroupedBarChart data={data} selector={selector} scale= {scale} size={[1200, 800]} /> : <CircularProgress />}
         {/* </Box> */}
       </CardContent>
       <Divider />

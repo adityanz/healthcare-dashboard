@@ -76,7 +76,7 @@ class BubbleChart extends React.Component {
         }
         console.log(dataset)
 
-        var diameter = 600;
+        var diameter = 300;
         var color = d3.scaleOrdinal(d3.schemeCategory10);
 
         var bubble = d3.pack(dataset)

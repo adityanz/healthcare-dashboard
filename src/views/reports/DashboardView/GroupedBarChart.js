@@ -58,6 +58,7 @@ class GroupedBarChart extends React.Component {
         const data = this.props.data
         const owidth = this.props.size[0]
         const oheight = this.props.size[1]
+        const scale = this.props.scale.logarithmic
 
         const label = this.props.selector
 
@@ -82,8 +83,24 @@ class GroupedBarChart extends React.Component {
             .range([0, width]) // output
             .padding(0.1)
 
-        var yScale = d3.scaleLinear()
-            .range([height, 0]); // output
+        var yScale;
+        if (scale)
+        {
+            console.log("logarithmic")
+            console.log(scale)
+            yScale = d3.scaleLog()
+                .base(Math.E)
+                .domain([Math.exp(0), Math.exp(9)])
+                .range([height, 0]);        }
+        else{
+            console.log("logarithmic")
+            console.log(scale)
+            yScale = d3.scaleLinear()
+                .range([height, 0]); // output
+            yScale.domain([0, d3.max(data, function (key) { return d3.max(key.values, function (d) { return d.value; }); })]);
+
+        }
+
 
         var color = d3.scaleOrdinal()
         .domain(gname)
@@ -96,7 +113,6 @@ class GroupedBarChart extends React.Component {
         xScale.domain(dnames);
         xScale1.domain(gname).rangeRound([0, xScale.bandwidth()]);
 
-        yScale.domain([0, d3.max(data, function (key) { return d3.max(key.values, function (d) { return d.value; }); })]);
 
         svg.append("g")
             .attr("class", "x axis")
