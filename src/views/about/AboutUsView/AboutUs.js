@@ -44,14 +44,19 @@ const AboutUs = ({className, ...rest}) => {
             align="center"
             color="textPrimary"
             variant="h1"
+            style={{whiteSpace: 'pre-line'}}
           >
+            {"\n"}
+            {"\n"}
             About Us!
           </Typography>
           <Typography
             align="center"
             color="textPrimary"
-            variant="h5"
+            variant="h4"
+            style={{whiteSpace: 'pre-line'}}
           >
+          {"\n"}
           A journey towards creating a Healthcare Data story through data visualizations
           using React and D3.js. Our final product will be a dashboard that shows the
           relationship between diagnoses and demographics.
@@ -60,10 +65,10 @@ const AboutUs = ({className, ...rest}) => {
       </Box>
       <Container className={classes.cardGrid} maxWidth="md">
         {/* End hero unit */}
-        <Typography component="h4" variant="h2" align="center" color="textMain" gutterBottom>
+        <Typography component="h4" variant="h2" align="center" style={{whiteSpace: 'pre-line'}} color="textMain" gutterBottom>
+          {"\n"}
+          {"\n"}
           Get To Know Our Team
-        </Typography>
-        <Typography variant="h1" align="center" color="textDark" paragraph>
         </Typography>
         <Cards cards={cardData} />
         {/*<Cards /> */}

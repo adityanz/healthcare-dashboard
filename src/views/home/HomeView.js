@@ -49,7 +49,9 @@ const HomeView = () => {
             align="center"
             color="textPrimary"
             variant="subtitle1"
+            style={{whiteSpace: 'pre-line'}}
           >
+            {"\n"}
             The visualizations on this website show some relationships we found interesting
             with the Medical Information Mart for Intensive Care III. MIMIC-III is a large,
             freely-available database comprising deidentified health-related data associated

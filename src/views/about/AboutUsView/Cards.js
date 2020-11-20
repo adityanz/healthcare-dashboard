@@ -9,7 +9,7 @@ function Cards(props) {
   const cards = props.cards;
 
   return (
-    <div style={{ marginTop: 20, padding: 30 }}>
+    <div style={{ marginTop: 10, padding: 10 }}>
       <Grid container spacing={4} justify="center">
         {cards.map((card) => (
           <Grid item key={card.title} md={2}>
