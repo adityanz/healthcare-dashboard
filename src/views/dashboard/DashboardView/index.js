@@ -15,6 +15,9 @@ import TotalUniquePrescriptions from './TotalUniquePrescriptions';
 import FirstMostCommonPrescription from './FirstMostCommonPrescription';
 import DiagnosesBarChart from './DiagnosesBarChart';
 import DiagnosesBubbleChart from './DiagnosesBubbleChart';
+import DiagnosesScatterPlot from './DiagnosesScatterPlot';
+import DiagnosesParallelCoordinates from './DiagnosesParallelCoordinates';
+import DiagnosesLineChart from './DiagnosesLineChart';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -150,6 +153,49 @@ const Dashboard = () => {
         </Grid>
 
       </Container>
+
+      <Container maxWidth={false}>
+        <Grid
+          container
+          spacing={3}
+        >
+          <Grid
+            item
+          >
+            <DiagnosesScatterPlot />
+          </Grid>
+        </Grid>
+
+      </Container>
+
+      <Container maxWidth={false}>
+        <Grid
+          container
+          spacing={3}
+        >
+          <Grid
+            item
+          >
+            <DiagnosesParallelCoordinates/>
+          </Grid>
+        </Grid>
+
+      </Container>
+
+      <Container maxWidth={false}>
+        <Grid
+          container
+          spacing={3}
+        >
+          <Grid
+            item
+          >
+            <DiagnosesLineChart />
+          </Grid>
+        </Grid>
+
+      </Container>
+
     </Page>
   );
 };
