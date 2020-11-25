@@ -104,17 +104,13 @@ class BubbleChart extends React.Component {
                 return !d.children
             })
             .append("g")
-            .attr("class", "node")
+            .attr("class", function (d) {
+                {console.log(d.data.Name)}return d.data.name;
+            })
             .attr("transform", function (d) {
                 return "translate(" + d.x + "," + d.y + ")";
-            });
-
-
-        node.append("title")
-            .text(function (d) {
-                return d.Name + ": " + d.Count;
-            });
-
+            })
+            
         node.append("circle")
             .attr("r", function (d) {
                 return d.r;
@@ -147,51 +143,29 @@ class BubbleChart extends React.Component {
             })
             .attr("fill", "white");
 
-        node.append("title")
-            .text(function (d) {
-                return d.Name + ": " + d.Count;
-            });
-
-        node.append("circle")
-            .attr("r", function (d) {
-                return d.r;
-            })
-            .style("fill", function (d, i) {
-                return color(i);
-            });
-
-        node.append("text")
-            .attr("dy", ".2em")
-            .style("text-anchor", "middle")
-            .text(function (d) {
-                return d.data.Name.substring(0, d.r / 3);
-            })
-            .attr("font-family", "sans-serif")
-            .attr("font-size", function (d) {
-                return d.r / 5;
-            })
-            .attr("fill", "white");
-
-        node.append("text")
-            .attr("dy", "1.3em")
-            .style("text-anchor", "middle")
-            .text(function (d) {
-                return d.data.Count;
-            })
-            .attr("font-family", "Gill Sans", "Gill Sans MT")
-            .attr("font-size", function (d) {
-                return d.r / 5;
-            })
-            .attr("fill", "white");
         
-        var zoom = d3.zoom()
-            .scaleExtent([1, 8])
-            .on('zoom', function (event) {
-                    svg.attr('transform', event.transform)
+        svg.selectAll("circle").on("click", clicked);
 
-            });
+        function clicked(event, d) {
+            if (event.defaultPrevented) return; // dragged
 
-        svg.call(zoom);
+            d3.select(this).transition()
+                .attr(console.log(this))
+                .attr("fill", "black")
+                .attr("r", d.r * 2)
+                .transition()
+                .attr("r", d.r)
+                .attr("fill", d3.schemeCategory10[d.index % 10]);
+        }
+
+        // var zoom = d3.zoom()
+        //     .scaleExtent([1, 8])
+        //     .on('zoom', function (event) {
+        //             svg.attr('transform', event.transform)
+
+        //     });
+
+        // svg.call(zoom);
 
         function mouseover() {
             d3.select(this).attr("opacity", .5)

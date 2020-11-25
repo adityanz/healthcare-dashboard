@@ -13,11 +13,12 @@ import FirstMostCommonDiagnosis from './FirstMostCommonDiagnosis';
 import SecondMostCommonDiagnosis from './SecondMostCommonDiagnosis';
 import TotalUniquePrescriptions from './TotalUniquePrescriptions';
 import FirstMostCommonPrescription from './FirstMostCommonPrescription';
-import DiagnosesBarChart from './DiagnosesBarChart';
+import DiagnosesGroupedBarChart from './DiagnosesGroupedBarChart';
 import DiagnosesBubbleChart from './DiagnosesBubbleChart';
 import DiagnosesScatterPlot from './DiagnosesScatterPlot';
 import DiagnosesParallelCoordinates from './DiagnosesParallelCoordinates';
-import DiagnosesLineChart from './DiagnosesLineChart';
+import DiagnosesAreaChart from './DiagnosesAreaChart';
+import DiagnosesStackedBarChart from './DiagnosesStackedBarChart';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -148,7 +149,7 @@ const Dashboard = () => {
           <Grid
             item
           >
-            <DiagnosesBarChart />
+            <DiagnosesGroupedBarChart />
           </Grid>
         </Grid>
 
@@ -176,7 +177,7 @@ const Dashboard = () => {
           <Grid
             item
           >
-            <DiagnosesParallelCoordinates/>
+            {/* <DiagnosesParallelCoordinates/> */}
           </Grid>
         </Grid>
 
@@ -190,7 +191,21 @@ const Dashboard = () => {
           <Grid
             item
           >
-            <DiagnosesLineChart />
+            <DiagnosesAreaChart />
+          </Grid>
+        </Grid>
+
+      </Container>
+
+      <Container maxWidth={false}>
+        <Grid
+          container
+          spacing={3}
+        >
+          <Grid
+            item
+          >
+            <DiagnosesStackedBarChart />
           </Grid>
         </Grid>
 

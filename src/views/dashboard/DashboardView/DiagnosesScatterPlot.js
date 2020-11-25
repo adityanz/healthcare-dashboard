@@ -66,7 +66,7 @@ const DiagnosesScatterPlot = ({ className, ...rest }) => {
                         <MenuItem value={3}>Trauma</MenuItem>
                     </Select>
                 )}
-                title="Scatter Plot"
+                title="Q7 ICU Scatter Plot"
             />
             <Divider />
             <CardContent id={"sp"}>
