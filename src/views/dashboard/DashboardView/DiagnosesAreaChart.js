@@ -70,21 +70,25 @@ function areaP(dataset) {
     return output
 }
 
+function getKeys(dataset)
+{
+    return dataset.map(function (d) { return d.diagnosis; });
+}
 const DiagnosesLineChart = ({ className, ...rest }) => {
     const classes = useStyles();
     const theme = useTheme();
 
     let [loading, setLoading] = React.useState(true);
     let [data, setData] = React.useState([]);
-    // let [selector, setSelector] = React.useState(0);
+    let [keys, setKeys] = React.useState([]);
 
     React.useEffect(() => {
         let apiUrl = 'https://visualizing-healthcare-data.wm.r.appspot.com/data/age/';
         fetch(apiUrl)
             .then((response) => response.json())
-            .then(result => areaP(result) )
             .then(result => {
-                setData(result);
+                setData(areaP(result));
+                setKeys(getKeys(result));
                 setLoading(false);
             })
     }, [])
@@ -121,7 +125,7 @@ const DiagnosesLineChart = ({ className, ...rest }) => {
           height={400}
           position="relative"
         > */}
-                {!loading ? <AreaChart data={data} size={[800, 800]} /> : <CircularProgress />}
+                {!loading ? <AreaChart data={data} keys={keys} size={[800, 800]} /> : <CircularProgress />}
                 {/* </Box> */}
             </CardContent>
             <Divider />

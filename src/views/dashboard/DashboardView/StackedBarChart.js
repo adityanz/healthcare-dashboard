@@ -10,7 +10,10 @@ class StackedBarChart extends React.Component {
         this.createBarChart = this.createBarChart.bind(this)
         this.state = {
             svg: null,
-            div: null
+            div: null,
+            width: null,
+            height: null,
+            margin: null
         };
 
     }
@@ -18,7 +21,7 @@ class StackedBarChart extends React.Component {
         const owidth = this.props.size[0]
         const oheight = this.props.size[1]
 
-        var margin = { top: 20, right: 0, bottom: 20, left: 70 },
+        var margin = { top: 20, right: 20, bottom: 20, left: 70 },
             width = owidth - margin.left - margin.right,
             height = oheight - margin.top - margin.bottom;
 
@@ -33,7 +36,7 @@ class StackedBarChart extends React.Component {
             .attr("class", "tooltip-donut")
             .style("opacity", 0);
 
-        this.setState({ svg, div, width, height });
+        this.setState({ svg, div, width, height,margin });
     }
     componentDidUpdate() {
         this.removeExistingBars();
@@ -54,18 +57,11 @@ class StackedBarChart extends React.Component {
     createBarChart() {
         const { svg } = this.state;
         const { div } = this.state;
-
-        const owidth = this.props.size[0]
-        const oheight = this.props.size[1]
-
-        const selector = this.props.selector
-
-        var margin = { top: 20, right: 0, bottom: 20, left: 70 },
-            width = owidth - margin.left - margin.right,
-            height = oheight - margin.top - margin.bottom;
+        const { width } = this.state;
+        const { height } = this.state;
+        const { margin } = this.state;
 
         let output = this.props.data
-
   
         var yScale = d3.scaleBand()
             .range([margin.top, height - margin.bottom])
@@ -82,7 +78,7 @@ class StackedBarChart extends React.Component {
 
 
         var keys = ["Government", "Medicaid", "Medicare", "Private", "Self Pay"]
-        xScale.domain([0, 1500])
+        xScale.domain([0, 1700])
 
 
         yScale.domain(output.map(function (d) { return d.disease; }));
@@ -99,18 +95,12 @@ class StackedBarChart extends React.Component {
         console.log("d3")
         console.log(d3.stack().keys(keys)(output))
 
-        svg.attr("width", width + margin.left + margin.right)
-            .attr("height", height + margin.top + margin.bottom)
-            .append("g")
-            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
         svg.append("g")
             .attr("class", "axis")
-            .style("stroke", "lightslategray")
             .call(d3.axisLeft(yScale).ticks(null, "s"));
         svg.append("g")
             .attr("class", "axis")
             .attr("transform", "translate(0," + height + ")")
-            .style("stroke", "lightslategray")
             .call(d3.axisBottom(xScale).ticks(16, "f"));
 
         svg.append("g")
@@ -136,7 +126,7 @@ class StackedBarChart extends React.Component {
                     .style("opacity", 1)
                 let key = Object.keys(d.data).find(key => d.data[key] === d[1] - d[0]);
 
-                div.html(" Alarm Type: " + key + "<br>" + "Total Number of Alarms: " + (d[1] - d[0]))
+                div.html(" Insurance: " + key + "<br>" + "Amount of People: " + (d[1] - d[0]))
                     .style("left", (event.pageX - 30) + "px")
                     .style("top", (event.pageY - 15) + "px")
 
@@ -159,12 +149,13 @@ class StackedBarChart extends React.Component {
             .scale(zScale)
             .shape('circle')
             .orient('vertical')
+            .labelOffset(5)
 
 
         svg.append("g")
             .attr("class", "legend")
-            .attr("transform", "translate(" + (width - 350) + ", " + 20 + ")");
-
+            .attr("transform", "translate(" + (width - 100) + ", " + (height-100) + ")")
+            .style("font-size", "12")
 
         svg.select(".legend")
             .call(legend);

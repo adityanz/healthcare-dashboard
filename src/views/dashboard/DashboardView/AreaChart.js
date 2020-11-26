@@ -24,7 +24,7 @@ class AreaChart extends React.Component {
             width = owidth - margin.left - margin.right,
             height = oheight - margin.top - margin.bottom;
 
-        const svg = d3.select("body").select("#lc").append("svg")
+        const svg = d3.select("body").select("#lc").select("svg")
             .attr("width", width + margin.left + margin.right)
             .attr("height", height + margin.top + margin.bottom)
             .append("g")
@@ -63,8 +63,8 @@ class AreaChart extends React.Component {
 
         var color = d3.scaleOrdinal(d3.schemeCategory10)
 
-        var keys = ["CHEST PAIN", "PNEUMONIA", "SEPSIS", "TRAUMA"]
-
+        var keys = this.props.keys
+        console.log(keys)
         var stackedData = d3.stack()
             .keys(keys)
             (data)
@@ -85,14 +85,15 @@ class AreaChart extends React.Component {
         //     .range([height, 0]); // output 
 
         var xScale = d3.scaleLinear()
-            .domain(d3.extent(data, function (d) { return d.id; }))
+            // .domain(d3.extent(data, function (d) { return d.id; }))
+            .domain([0, 90])
             .range([0, width]);
 
 
 
         // Add Y axis
         var yScale = d3.scaleLinear()
-            .domain([0, 250])
+            .domain([0, 500])
             .range([height, 0]);
         //  xScale.domain([0, d3.max(data, function (key) { return d3.max(key.values, function (d) { return d.distribution; }); })]);
         // yScale.domain([0, d3.max(data, function (key) { return d3.max(key.values, function (d) { return d.value; }); })]);
@@ -235,12 +236,13 @@ class AreaChart extends React.Component {
             .scale(color)
             .shape('circle')
             .orient('vertical')
+            .labelOffset(5)
 
 
         svg.append("g")
             .attr("class", "legend")
-            .attr("transform", "translate(" + (width - 350) + ", " + 20 + ")");
-
+            .attr("transform", "translate(" + (width - 130) + ", " + 20 + ")")
+            .style("font-size", "12")
 
         svg.select(".legend")
             .call(legend);
@@ -284,7 +286,7 @@ class AreaChart extends React.Component {
 
     render() {
         return (
-            <div ref={this.myRef} />
+            <svg />
         )
     }
 

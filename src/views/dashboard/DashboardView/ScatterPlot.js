@@ -21,7 +21,7 @@ class ScatterPlot extends React.Component {
             width = owidth - margin.left - margin.right,
             height = oheight - margin.top - margin.bottom;
 
-        const svg = d3.select("body").select("#sp").append("svg")
+        const svg = d3.select("body").select("#sp").select("svg")
             .attr("width", width + margin.left + margin.right)
             .attr("height", height + margin.top + margin.bottom)
             .append("g")
@@ -181,7 +181,7 @@ class ScatterPlot extends React.Component {
 
     render() {
         return (
-            <div ref={this.myRef} />
+            <svg/>
         )
     }
 

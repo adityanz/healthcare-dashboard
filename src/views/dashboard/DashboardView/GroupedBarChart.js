@@ -10,7 +10,10 @@ class GroupedBarChart extends React.Component {
         this.createBarChart = this.createBarChart.bind(this)
         this.state = {
             svg: null,
-            div: null
+            div: null,
+            width: null,
+            height: null,
+            margin: null
         };
 
     }
@@ -33,7 +36,7 @@ class GroupedBarChart extends React.Component {
             .attr("class", "tooltip-donut")
             .style("opacity", 0);
 
-        this.setState({ svg, div });
+        this.setState({ svg, div, width, height, margin });
     }
     componentDidUpdate() {
         this.removeExistingBars();
@@ -54,17 +57,14 @@ class GroupedBarChart extends React.Component {
     createBarChart() {
         const { svg } = this.state;
         const { div } = this.state;
+        const { width } = this.state;
+        const { height } = this.state;
+        const { margin } = this.state;
+
 
         const data = this.props.data
-        const owidth = this.props.size[0]
-        const oheight = this.props.size[1]
         const scale = this.props.scale.logarithmic
-
         const label = this.props.selector
-
-        var margin = { top: 20, right: 20, bottom: 70, left: 100 },
-            width = owidth - margin.left - margin.right,
-            height = oheight - margin.top - margin.bottom;
 
         console.log("data", data);
         var dnames = data.map(function (d) { return d.diagnosis; });
@@ -128,11 +128,12 @@ class GroupedBarChart extends React.Component {
             .scale(color)
             .shape('circle')
             .orient('vertical')
+            .labelOffset(5)
 
 
         svg.append("g")
             .attr("class", "legend")
-            .attr("transform", "translate(" + (owidth-350) + ", " + 20+")");
+            .attr("transform", "translate(" + (width-100) + ", " + 20+")");
 
 
         svg.select(".legend")
