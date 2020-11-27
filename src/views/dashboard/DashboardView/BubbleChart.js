@@ -17,15 +17,14 @@ class BubbleChart extends React.Component {
     componentDidMount() {
         const owidth = this.props.size[0]
         const oheight = this.props.size[1]
-        var diameter = 600;
 
         var margin = { top: 20, right: 20, bottom: 70, left: 100 },
             width = owidth - margin.left - margin.right,
             height = oheight - margin.top - margin.bottom;
 
         const svg = d3.select("body").select("#bc").select("svg")
-            .attr("width", diameter)
-            .attr("height", diameter)
+            .attr("width", width)
+            .attr("height", height)
             .attr("class", "bubble");
 
         this.setState({ svg });
@@ -91,7 +90,7 @@ class BubbleChart extends React.Component {
         var color = d3.scaleOrdinal(d3.schemeCategory10);
 
         var bubble = d3.pack(dataset)
-            .size([diameter, diameter])
+            .size([width, height])
             .padding(1.5);
 
         var nodes = d3.hierarchy(dataset)

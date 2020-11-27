@@ -32,7 +32,7 @@ class StackedBarChart extends React.Component {
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 
-        const div = d3.select("body").append("div")
+        const div = d3.select("body").select("#sb").append("div")
             .attr("class", "tooltip-donut")
             .style("opacity", 0);
 

@@ -9,8 +9,12 @@ class ScatterPlot extends React.Component {
         this.removeExistingBars = this.removeExistingBars.bind(this);
         this.createBarChart = this.createBarChart.bind(this)
         this.state = {
-            svg: null
+            svg: null,
+            width: null,
+            height: null,
+            margin: null
         };
+
 
     }
     componentDidMount() {
@@ -28,7 +32,7 @@ class ScatterPlot extends React.Component {
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 
-        this.setState({ svg });
+        this.setState({ svg, width, height, margin });
     }
     componentDidUpdate() {
         this.removeExistingBars();
@@ -48,15 +52,15 @@ class ScatterPlot extends React.Component {
 
     createBarChart() {
         const { svg } = this.state;
+        const { div } = this.state;
+        const { width } = this.state;
+        const { height } = this.state;
+        const { margin } = this.state;
         const dataset = this.props.data
-        const owidth = this.props.size[0]
-        const oheight = this.props.size[1]
 
         const selector = this.props.selector
 
-        var margin = { top: 20, right: 20, bottom: 70, left: 100 },
-            width = owidth - margin.left - margin.right,
-            height = oheight - margin.top - margin.bottom;
+    
 
         console.log("data", dataset);
 

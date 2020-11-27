@@ -125,7 +125,7 @@ const DiagnosesLineChart = ({ className, ...rest }) => {
           height={400}
           position="relative"
         > */}
-                {!loading ? <AreaChart data={data} keys={keys} size={[800, 800]} /> : <CircularProgress />}
+                {!loading ? <AreaChart data={data} keys={keys} size={[450, 500]} /> : <CircularProgress />}
                 {/* </Box> */}
             </CardContent>
             <Divider />

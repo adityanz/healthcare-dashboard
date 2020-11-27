@@ -15,10 +15,11 @@ import TotalUniquePrescriptions from './TotalUniquePrescriptions';
 import FirstMostCommonPrescription from './FirstMostCommonPrescription';
 import DiagnosesGroupedBarChart from './DiagnosesGroupedBarChart';
 import DiagnosesBubbleChart from './DiagnosesBubbleChart';
-import DiagnosesScatterPlot from './DiagnosesScatterPlot';
-import DiagnosesParallelCoordinates from './DiagnosesParallelCoordinates';
+import DiagnosesLineChart from './DiagnosesLineChart';
+import DiagnosesTreeMap from './DiagnosesTreeMap';
 import DiagnosesAreaChart from './DiagnosesAreaChart';
 import DiagnosesStackedBarChart from './DiagnosesStackedBarChart';
+import DiagnosesWaffleChart from './DiagnosesWaffleChart';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -163,34 +164,6 @@ const Dashboard = () => {
           <Grid
             item
           >
-            <DiagnosesScatterPlot />
-          </Grid>
-        </Grid>
-
-      </Container>
-
-      <Container maxWidth={false}>
-        <Grid
-          container
-          spacing={3}
-        >
-          <Grid
-            item
-          >
-            {/* <DiagnosesParallelCoordinates/> */}
-          </Grid>
-        </Grid>
-
-      </Container>
-
-      <Container maxWidth={false}>
-        <Grid
-          container
-          spacing={3}
-        >
-          <Grid
-            item
-          >
             <DiagnosesAreaChart />
           </Grid>
         </Grid>
@@ -211,6 +184,46 @@ const Dashboard = () => {
 
       </Container>
 
+      <Container maxWidth={false}>
+        <Grid
+          container
+          spacing={3}
+        >
+          <Grid
+            item
+          >
+            <DiagnosesLineChart />
+          </Grid>
+        </Grid>
+
+      </Container>
+      <Container maxWidth={false}>
+        <Grid
+          container
+          spacing={3}
+        >
+          <Grid
+            item
+          >
+            <DiagnosesWaffleChart />
+          </Grid>
+        </Grid>
+
+      </Container>
+      <Container maxWidth={false}>
+        <Grid
+          container
+          spacing={3}
+        >
+          <Grid
+            item
+          >
+            <DiagnosesTreeMap />
+          </Grid>
+        </Grid>
+
+      </Container>
+  
     </Page>
   );
 };

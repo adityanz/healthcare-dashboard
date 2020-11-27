@@ -78,7 +78,7 @@ const DiagnosesBarChart = ({ className, ...rest }) => {
           height={400}
           position="relative"
         > */}
-              {!loading ? <BubbleChart data={data} selector={selector} size={[800, 800]} /> : <CircularProgress />}
+              {!loading ? <BubbleChart data={data} selector={selector} size={[450, 500]} /> : <CircularProgress />}
               {/* </Box> */}
            </CardContent>
          <Divider />

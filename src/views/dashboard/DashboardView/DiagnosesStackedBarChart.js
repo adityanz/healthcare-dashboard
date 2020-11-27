@@ -140,7 +140,7 @@ const DiagnosesStackedBarChart = ({ className, ...rest }) => {
           height={400}
           position="relative"
         > */}
-                {!loading ? <StackedBarChart data={data} selector={selector} scale={scale} size={[1200, 800]} /> : <CircularProgress />}
+                {!loading ? <StackedBarChart data={data} selector={selector} scale={scale} size={[450, 500]} /> : <CircularProgress />}
                 {/* </Box> */}
             </CardContent>
             <Divider />
