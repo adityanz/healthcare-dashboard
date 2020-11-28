@@ -19,7 +19,8 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 
-
+let selectordata = [[12, 18], [18, 21], [22, 35], [36, 55], [55, 65], [65, 75], [75, 100]
+];
 
 const useStyles = makeStyles(() => ({
     root: {}
@@ -27,9 +28,7 @@ const useStyles = makeStyles(() => ({
 
 function waffleData(dataset,selector){
     let arr = []
-    let selectordata = [
-        [0, 2], [2, 6], [6, 12], [12, 18], [18, 21], [22, 35], [36, 55], [55, 65], [65, 75], [75, 100]
-];
+
 
     dataset.forEach(function (d) {
         d.values.forEach(function (e) {
@@ -87,12 +86,14 @@ const DiagnosesWaffleChart = ({ className, ...rest }) => {
         fetch(apiUrl)
             .then((response) => response.json())
             .then(result => {
-                setData(waffleData(result, selector));
+                // setData(waffleData(result, selector));
+                setData(result);
                 setLoading(false);
             })
     }, [])
 
     const handleChange = (event) => {
+        // setLoading(true);
         setSelector(event.target.value);
     };
 
@@ -108,16 +109,13 @@ const DiagnosesWaffleChart = ({ className, ...rest }) => {
                         value={selector}
                         onChange={handleChange}
                     >
-                        <MenuItem value={0}>{0}</MenuItem>
-                        <MenuItem value={1}>{1}</MenuItem>
-                        <MenuItem value={1}>{1}</MenuItem>
-                        <MenuItem value={2}>{2}</MenuItem>
-                        <MenuItem value={3}>{3}</MenuItem>
-                        <MenuItem value={4}>{4}</MenuItem>
-                        <MenuItem value={5}>{5}</MenuItem>
-                        <MenuItem value={6}>{6}</MenuItem>
-                        <MenuItem value={7}>{7}</MenuItem>
-                        <MenuItem value={8}>{8}</MenuItem>
+                        <MenuItem value={0}>{selectordata[0][0] + "-" + selectordata[0][1] + " Age Range"}</MenuItem>
+                        <MenuItem value={1}>{selectordata[1][0] + "-" + selectordata[1][1] + " Age Range"}</MenuItem>
+                        <MenuItem value={2}>{selectordata[2][0] + "-" + selectordata[2][1] + " Age Range"}</MenuItem>
+                        <MenuItem value={3}>{selectordata[3][0] + "-" + selectordata[3][1] + " Age Range"}</MenuItem>
+                        <MenuItem value={4}>{selectordata[4][0] + "-" + selectordata[4][1] + " Age Range"}</MenuItem>
+                        <MenuItem value={5}>{selectordata[5][0] + "-" + selectordata[5][1] + " Age Range"}</MenuItem>
+                        <MenuItem value={6}>{selectordata[6][0] + "-" + selectordata[6][1] + " Age Range"}</MenuItem>
                     </Select>
                 )}
                 title="Q8 Drugs Waffle Chart"
@@ -129,7 +127,7 @@ const DiagnosesWaffleChart = ({ className, ...rest }) => {
           height={400}
           position="relative"
         > */}
-                {!loading ? <WaffleChart data={data} selector={selector} size={[450, 500]} /> : <CircularProgress />}
+                {!loading ? <WaffleChart data={data} selector={selector} size={[800, 200]} /> : <CircularProgress />}
                 {/* </Box> */}
             </CardContent>
             <Divider />

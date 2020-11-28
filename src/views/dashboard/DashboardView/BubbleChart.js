@@ -109,6 +109,18 @@ class BubbleChart extends React.Component {
             .attr("transform", function (d) {
                 return "translate(" + d.x + "," + d.y + ")";
             })
+
+        var tooltip = d3.select("body").select("#bc")
+            .append("div")
+            .style("position", "absolute")
+            .style("z-index", "10")
+            .style("visibility", "hidden")
+            .style("color", "white")
+            .style("padding", "8px")
+            .style("background-color", "rgba(0, 0, 0, 0.75)")
+            .style("border-radius", "6px")
+            .style("font", "12px sans-serif")
+            .text("tooltip");
             
         node.append("circle")
             .attr("r", function (d) {
@@ -116,7 +128,7 @@ class BubbleChart extends React.Component {
             })
             .style("fill", function (d, i) {
                 return color(i);
-            });
+            })
 
         node.append("text")
             .attr("dy", ".2em")
@@ -142,29 +154,37 @@ class BubbleChart extends React.Component {
             })
             .attr("fill", "white");
 
-        
-        svg.selectAll("circle").on("click", clicked);
+        node
+                    .on("mouseover", function (d) {
+                        tooltip.text(d.path[0].__data__.data.Name + ": " + d.path[0].__data__.data.Count);
+                        tooltip.style("visibility", "visible");
+                    })
+            .on("mousemove", function (event, d) {
+                return tooltip.style("top", (event.pageY - 10) + "px").style("left", (event.pageX + 10) + "px");
+            })
+            .on("mouseout", function () { return tooltip.style("visibility", "hidden"); });
+        // svg.selectAll("circle").on("click", clicked);
 
-        function clicked(event, d) {
-            if (event.defaultPrevented) return; // dragged
+        // function clicked(event, d) {
+        //     if (event.defaultPrevented) return; // dragged
 
-            d3.select(this).transition()
-                .attr(console.log(this))
-                .attr("fill", "black")
-                .attr("r", d.r * 2)
-                .transition()
-                .attr("r", d.r)
-                .attr("fill", d3.schemeCategory10[d.index % 10]);
-        }
+        //     d3.select(this).transition()
+        //         .attr(console.log(this))
+        //         .attr("fill", "black")
+        //         .attr("r", d.r * 2)
+        //         .transition()
+        //         .attr("r", d.r)
+        //         .attr("fill", d3.schemeCategory10[d.index % 10]);
+        // }
 
-        // var zoom = d3.zoom()
-        //     .scaleExtent([1, 8])
-        //     .on('zoom', function (event) {
-        //             svg.attr('transform', event.transform)
+        var zoom = d3.zoom()
+            .scaleExtent([1, 8])
+            .on('zoom', function (event) {
+                    svg.attr('transform', event.transform)
 
-        //     });
+            });
 
-        // svg.call(zoom);
+        svg.call(zoom);
 
         function mouseover() {
             d3.select(this).attr("opacity", .5)

@@ -89,13 +89,14 @@ const DiagnosesStackedBarChart = ({ className, ...rest }) => {
     let [loading, setLoading] = React.useState(true);
     let [data, setData] = React.useState([]);
     let [selector, setSelector] = React.useState('M');
+    let [url, setURL] = React.useState('gender');
     let [scale, setScale] = React.useState({
         logarithmic: false,
     });
 
     console.log(selector)
     React.useEffect(() => {
-        let apiUrl = 'https://visualizing-healthcare-data.wm.r.appspot.com/data/insurance/gender';
+        let apiUrl = 'https://visualizing-healthcare-data.wm.r.appspot.com/data/insurance/' + url + '/';
         fetch(apiUrl)
             .then((response) => response.json())
             .then(result => stackedbarP(result,selector))
@@ -107,7 +108,16 @@ const DiagnosesStackedBarChart = ({ className, ...rest }) => {
     console.log(data)
 
     const handleCategory = (event) => {
+        let theval = event.target.value
         setLoading(true)
+        if (theval == 'M' || theval == 'F')
+        {
+            setURL('gender')   
+        }
+        else if (theval == 'English' || theval == 'Non-English')
+        {
+            setURL('language')
+        }
         setSelector(event.target.value);
     };
 
@@ -129,6 +139,8 @@ const DiagnosesStackedBarChart = ({ className, ...rest }) => {
                     >
                         <MenuItem value={"M"}>Male</MenuItem>
                         <MenuItem value={"F"}>Female</MenuItem>
+                        <MenuItem value={"English"}>English</MenuItem>
+                        <MenuItem value={"Non-English"}>Non-English</MenuItem>
                     </Select>
                 )}
                 title="Q5 Insurance Stacked Bar"
@@ -140,7 +152,7 @@ const DiagnosesStackedBarChart = ({ className, ...rest }) => {
           height={400}
           position="relative"
         > */}
-                {!loading ? <StackedBarChart data={data} selector={selector} scale={scale} size={[450, 500]} /> : <CircularProgress />}
+                {!loading ? <StackedBarChart data={data} selector={selector} scale={scale} size={[850, 500]} /> : <CircularProgress />}
                 {/* </Box> */}
             </CardContent>
             <Divider />

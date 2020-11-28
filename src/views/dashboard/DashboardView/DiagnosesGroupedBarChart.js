@@ -101,7 +101,7 @@ const DiagnosesBarChart = ({ className, ...rest }) => {
           height={400}
           position="relative"
         > */}
-        {!loading ? <GroupedBarChart data={data} selector={selector} scale={scale} size={[450, 500]} /> : <CircularProgress />}
+        {!loading ? <GroupedBarChart data={data} selector={selector} scale={scale} size={[850, 500]} /> : <CircularProgress />}
          {/* </Box> */}
        </CardContent>
       <Divider />

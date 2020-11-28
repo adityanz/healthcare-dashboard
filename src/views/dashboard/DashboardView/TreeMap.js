@@ -9,6 +9,7 @@ class TreeMap extends React.Component {
         this.createMap = this.createMap.bind(this)
         this.state = {
             svg: null,
+            div: null,
             width: null,
             height: null,
         };
@@ -27,6 +28,7 @@ class TreeMap extends React.Component {
             .attr("height", height)
 
         this.setState({ svg });
+
         this.setState({ width });
         this.setState({ height });
 
@@ -48,6 +50,17 @@ class TreeMap extends React.Component {
         const { svg } = this.state;
         const { width } = this.state;
         const { height } = this.state;
+        var tooltip = d3.select("body").select("#bc")
+            .append("div")
+            .style("position", "absolute")
+            .style("z-index", "10")
+            .style("visibility", "hidden")
+            .style("color", "white")
+            .style("padding", "8px")
+            .style("background-color", "rgba(0, 0, 0, 0.75)")
+            .style("border-radius", "6px")
+            .style("font", "12px sans-serif")
+            .text("tooltip");
 
         const rawdata = this.props.data
         let dataset = {
@@ -119,6 +132,18 @@ class TreeMap extends React.Component {
             .text((d) => d.text)
             .attr("font-size", "0.5em")
             .attr("fill", "white");
+        
+            svg.selectAll('rect')
+            .on("mouseover", function (d) {
+                { console.log(d.path[0].__data__.parent.data.name + ": " + d.path[0].__data__.data.value)}
+                tooltip.text(d.path[0].__data__.parent.data.name + ": " + d.path[0].__data__.data.value);
+                tooltip.style("visibility", "visible");
+            })
+            .on("mousemove", function (event, d) {
+                return tooltip.style("top", (event.pageY - 10) + "px").style("left", (event.pageX + 10) + "px");
+            })
+            .on("mouseout", function () { return tooltip.style("visibility", "hidden"); });
+
 
     }
 

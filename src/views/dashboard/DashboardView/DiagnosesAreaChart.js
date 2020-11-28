@@ -119,13 +119,13 @@ const DiagnosesLineChart = ({ className, ...rest }) => {
                 title="Q4 Age Area Chart"
             />
             <Divider />
-            <CardContent id={"lc"}>
+            <CardContent id={"ac"}>
                 {/* <Box
           id={"gbc"}
           height={400}
           position="relative"
         > */}
-                {!loading ? <AreaChart data={data} keys={keys} size={[450, 500]} /> : <CircularProgress />}
+                {!loading ? <AreaChart data={data} keys={keys} size={[800, 800]} /> : <CircularProgress />}
                 {/* </Box> */}
             </CardContent>
             <Divider />

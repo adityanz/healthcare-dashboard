@@ -2,6 +2,8 @@ import React from 'react';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import LineChart from './LineChart';
+import LineChartD3 from './LineChart';
+
 import {
     Box,
     Button,
@@ -71,13 +73,13 @@ const DiagnosesScatterPlot = ({ className, ...rest }) => {
                 title="Q7 ICU Line Chart"
             />
             <Divider />
-            <CardContent id={"sp"}>
+            <CardContent id={"lc"}>
                 {/* <Box
           id={"gbc"}
           height={400}
           position="relative"
         > */}
-                {!loading ? <LineChart dataset={data} selector={selector} size={[450, 500]} /> : <CircularProgress />}
+                {!loading ? <LineChart dataset={data} selector={selector} size={[850, 500]} /> : <CircularProgress />}
                 {/* </Box> */}
             </CardContent>
             <Divider />

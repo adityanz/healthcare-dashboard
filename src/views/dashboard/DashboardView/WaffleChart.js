@@ -52,7 +52,68 @@ class WaffleChart extends React.Component {
         let { width } = this.state;
         let { height } = this.state;
 
-        const data = this.props.data
+        const dataset = this.props.data
+
+        const selector = this.props.selector
+
+        let arr = []
+
+
+        dataset.forEach(function (d) {
+            d.values.forEach(function (e) {
+                let o = {}
+                o.diagnosis = d.diagnosis
+                o.age = e.age
+                o.total = e.value
+                arr.push(o)
+            })
+        });
+
+        let selectordata = [[12, 18], [18, 21], [22, 35], [36, 55], [55, 65], [65, 75], [75, 100]]
+        console.log("arr", arr)
+        console.log(selectordata[selector][0])
+        console.log(selectordata[selector][1])
+        let arr_filtered = arr.filter(function (e) {
+            return e.age >= selectordata[selector][0] && e.age <= selectordata[selector][1];
+        });
+        console.log(arr_filtered)
+        let output = []
+
+        arr_filtered.forEach(function (item) {
+            var exist = output.filter(function (v, i) {
+                return v.diagnosis == item.diagnosis
+            });
+            if (exist.length) {
+                var index = output.indexOf(exist[0]);
+                var total = output[index].total + item.total;
+                Object.assign(output[index], item);
+                output[index].total = total;
+            } else {
+                if (typeof item.value == 'string') {
+                    item.value = [item.value];
+                }
+                output.push(item);
+            }
+        });
+        console.log("output", output)
+        let output_zero = output.filter(function (e) {
+            return e.total != 0;
+        });
+        console.log("output2", output_zero)
+        let data =  output_zero
+
+        // var tooltip = d3.select("body")
+        //     .append("div")
+        //     .style("position", "absolute")
+        //     .style("z-index", "10")
+        //     .style("visibility", "hidden")
+        //     .style("color", "white")
+        //     .style("padding", "8px")
+        //     .style("background-color", "rgba(0, 0, 0, 0.75)")
+        //     .style("border-radius", "6px")
+        //     .style("font", "12px sans-serif")
+        //     .text("tooltip");
+
         console.log("the incoming data", data)
         var total = 0;
         var
@@ -77,7 +138,8 @@ class WaffleChart extends React.Component {
             console.log("dataeach", d)
             console.log("index", i)
             d.total = +d.total;
-            d.units = (Math.floor(d.total / squareValue)) < 1 ? 1 : (Math.floor(d.total / squareValue));
+            // d.units = (Math.floor(d.total / squareValue)) < 1 ? 1 : (Math.floor(d.total / squareValue));
+            d.units = (Math.floor(d.total / squareValue));
             theData = theData.concat(
                 Array(d.units + 1).join(1).split('').map(function () {
                     return {
@@ -122,7 +184,15 @@ class WaffleChart extends React.Component {
             .append("title")
             .text(function (d, i) {
                 return "diagnosis range: " + data[d.groupIndex].diagnosis + " | " + d.total + " , " + d.units + "%"
-            });
+            })
+            // .on("mouseover", function (d) {
+            //     tooltip.text("diagnosis range: " + data[d.groupIndex].diagnosis + " | " + d.total + " , " + d.units + "%");
+            //     tooltip.style("visibility", "visible");
+            // })
+            // .on("mousemove", function (event, d) {
+            //     return tooltip.style("top", (event.pageY - 10) + "px").style("left", (event.pageX + 10) + "px");
+            // })
+            // .on("mouseout", function () { return tooltip.style("visibility", "hidden"); });
 
         var legend = d3l.legendColor()
             .scale(color)

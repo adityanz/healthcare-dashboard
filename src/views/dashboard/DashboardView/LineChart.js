@@ -28,12 +28,15 @@ const LineChart = ({ dataset, selector, className, ...rest }) => {
 
     selected.sort(function (a, b) { return a.age - b.age; });
     let data = {
-        "labels": selected.map(function (d) { return d.age; }),
-        "datasets": [
+        type: 'line',
+        labels: selected.map(function (d) { return d.age; }),
+        datasets: [
             {
                 backgroundColor: colors.blue[200],
+                borderColor: colors.blue[200],
                 label: "ICU Death Distribution",
                 data: selected.map(function (d) { return d.value; }),
+                fill: false,
             }
         ]
     };
