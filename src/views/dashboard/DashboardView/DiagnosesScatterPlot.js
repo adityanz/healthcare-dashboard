@@ -1,7 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import ScatterPlot from './ScatterPlot';
+import ScatterPlot from './d3/ScatterPlot';
 import {
     Box,
     Button,

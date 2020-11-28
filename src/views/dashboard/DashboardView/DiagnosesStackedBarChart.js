@@ -1,7 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import GroupedBarChart from './GroupedBarChart';
+import GroupedBarChart from './d3/GroupedBarChart';
 import {
     Box,
     Button,
@@ -21,7 +21,7 @@ import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
-import StackedBarChart from './StackedBarChart'
+import StackedBarChart from './d3/StackedBarChart'
 import { LocalConvenienceStoreOutlined } from '@material-ui/icons';
 
 const useStyles = makeStyles(() => ({

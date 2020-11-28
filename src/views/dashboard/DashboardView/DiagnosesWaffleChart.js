@@ -1,7 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import WaffleChart from './WaffleChart';
+import WaffleChart from './d3/WaffleChart';
 import {
     Box,
     Button,

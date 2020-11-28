@@ -1,8 +1,8 @@
 import React from 'react';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import LineChart from './LineChart';
-import LineChartD3 from './LineChart';
+import LineChart from './d3/LineChart';
+import LineChartD3 from './d3/LineChart';
 
 import {
     Box,

@@ -1,7 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import TreeMap from './TreeMap';
+import TreeMap from './d3/TreeMap';
 import {
     Box,
     Button,

@@ -1,7 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import GroupedBarChart from './GroupedBarChart';
+import GroupedBarChart from './d3/GroupedBarChart';
 import {
   Box,
   Button,

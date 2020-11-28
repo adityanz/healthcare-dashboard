@@ -21,6 +21,8 @@ import DiagnosesTreeMap from './DiagnosesTreeMap';
 import DiagnosesAreaChart from './DiagnosesAreaChart';
 import DiagnosesStackedBarChart from './DiagnosesStackedBarChart';
 import DiagnosesWaffleChart from './DiagnosesWaffleChart';
+export {default as palette} from "./palette.js";
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -105,24 +107,24 @@ const Dashboard = () => {
             xl={3}
             xs={12}
           >
-            <TotalUniquePrescriptions />
+           <TotalUniquePrescriptions />
           </Grid>
-          <Grid
-            item
-            lg={3}
-            sm={6}
-            xl={3}
-            xs={12}
-          >
+           <Grid
+             item
+             lg={3}
+             sm={6}
+             xl={3}
+             xs={12}
+           >
             <FirstMostCommonPrescription />
-          </Grid>
+           </Grid>
           <Grid
             item
             lg={3}
             sm={6}
             xl={3}
             xs={12}
-          >
+           >
           </Grid>
         </Grid>
       </Container>

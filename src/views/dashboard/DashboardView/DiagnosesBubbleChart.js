@@ -1,7 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import BubbleChart from './BubbleChart';
+import BubbleChart from './d3/BubbleChart';
 import {
     Box,
     Button,

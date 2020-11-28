@@ -1,7 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import AreaChart from './AreaChart';
+import AreaChart from './d3/AreaChart';
 import {
     Box,
     Button,
