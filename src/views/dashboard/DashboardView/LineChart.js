@@ -32,8 +32,8 @@ const LineChart = ({ dataset, selector, className, ...rest }) => {
         labels: selected.map(function (d) { return d.age; }),
         datasets: [
             {
-                backgroundColor: colors.blue[200],
-                borderColor: colors.blue[200],
+                backgroundColor: "#60a3bc",
+                borderColor: "#60a3bc",
                 label: "ICU Death Distribution",
                 data: selected.map(function (d) { return d.value; }),
                 fill: false,

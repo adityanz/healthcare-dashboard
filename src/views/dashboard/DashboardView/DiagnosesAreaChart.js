@@ -116,7 +116,7 @@ const DiagnosesLineChart = ({ className, ...rest }) => {
                 //         <MenuItem value={3}>Trauma</MenuItem>
                 //     </Select>
                 // )}
-                title="Q4 Age Area Chart"
+                title="Age Distribution"
             />
             <Divider />
             <CardContent id={"ac"}>

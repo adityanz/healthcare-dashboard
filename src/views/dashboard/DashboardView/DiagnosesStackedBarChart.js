@@ -112,7 +112,7 @@ const DiagnosesStackedBarChart = ({ className, ...rest }) => {
         setLoading(true)
         if (theval == 'M' || theval == 'F')
         {
-            setURL('gender')   
+            setURL('gender')
         }
         else if (theval == 'English' || theval == 'Non-English')
         {
@@ -143,7 +143,7 @@ const DiagnosesStackedBarChart = ({ className, ...rest }) => {
                         <MenuItem value={"Non-English"}>Non-English</MenuItem>
                     </Select>
                 )}
-                title="Q5 Insurance Stacked Bar"
+                title="Insurance Distribution"
             />
             <Divider />
             <CardContent id={"sb"}>

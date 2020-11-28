@@ -78,7 +78,7 @@ class TreeMap extends React.Component {
         console.log(data)
         const hierarchy = d3.hierarchy(data)
             .sum(d => d.value)  //sum every child's values
-            .sort((a, b) => b.value - a.value) // and sort them in descending order 
+            .sort((a, b) => b.value - a.value) // and sort them in descending order
         const treemap = d3.treemap()
             .size([width, height]) // width: 400px, height:450px
             .padding(1);      // set padding to 1
@@ -128,11 +128,11 @@ class TreeMap extends React.Component {
             .enter()
             .append('tspan')
             .attr("x", (d) => d.x0 + 5)
-            .attr("y", (d, i) => d.y0 + 15 + (i * 2))       // offset by index 
+            .attr("y", (d, i) => d.y0 + 15 + (i * 2))       // offset by index
             .text((d) => d.text)
             .attr("font-size", "0.5em")
             .attr("fill", "white");
-        
+
             svg.selectAll('rect')
             .on("mouseover", function (d) {
                 { console.log(d.path[0].__data__.parent.data.name + ": " + d.path[0].__data__.data.value)}

@@ -70,7 +70,7 @@ const DiagnosesScatterPlot = ({ className, ...rest }) => {
                         <MenuItem value={3}>{keys[3]}</MenuItem>
                     </Select>
                 )}
-                title="Q7 ICU Line Chart"
+                title="ICU Death Distribution"
             />
             <Divider />
             <CardContent id={"lc"}>

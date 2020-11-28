@@ -64,7 +64,7 @@ const DiagnosesScatterPlot = ({ className, ...rest }) => {
                 //         <MenuItem value={3}>Trauma</MenuItem>
                 //     </Select>
                 // )}
-                title="Q9 TreeMap"
+                title="Newborn Diagnoses"
             />
             <Divider />
             <CardContent id={"tm"}>

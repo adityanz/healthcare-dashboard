@@ -109,16 +109,16 @@ const DiagnosesWaffleChart = ({ className, ...rest }) => {
                         value={selector}
                         onChange={handleChange}
                     >
-                        <MenuItem value={0}>{selectordata[0][0] + "-" + selectordata[0][1] + " Age Range"}</MenuItem>
-                        <MenuItem value={1}>{selectordata[1][0] + "-" + selectordata[1][1] + " Age Range"}</MenuItem>
-                        <MenuItem value={2}>{selectordata[2][0] + "-" + selectordata[2][1] + " Age Range"}</MenuItem>
-                        <MenuItem value={3}>{selectordata[3][0] + "-" + selectordata[3][1] + " Age Range"}</MenuItem>
-                        <MenuItem value={4}>{selectordata[4][0] + "-" + selectordata[4][1] + " Age Range"}</MenuItem>
-                        <MenuItem value={5}>{selectordata[5][0] + "-" + selectordata[5][1] + " Age Range"}</MenuItem>
-                        <MenuItem value={6}>{selectordata[6][0] + "-" + selectordata[6][1] + " Age Range"}</MenuItem>
+                        <MenuItem value={0}>{selectordata[0][0] + " - " + selectordata[0][1] + " Age Range"}</MenuItem>
+                        <MenuItem value={1}>{selectordata[1][0] + " - " + selectordata[1][1] + " Age Range"}</MenuItem>
+                        <MenuItem value={2}>{selectordata[2][0] + " - " + selectordata[2][1] + " Age Range"}</MenuItem>
+                        <MenuItem value={3}>{selectordata[3][0] + " - " + selectordata[3][1] + " Age Range"}</MenuItem>
+                        <MenuItem value={4}>{selectordata[4][0] + " - " + selectordata[4][1] + " Age Range"}</MenuItem>
+                        <MenuItem value={5}>{selectordata[5][0] + " - " + selectordata[5][1] + " Age Range"}</MenuItem>
+                        <MenuItem value={6}>{selectordata[6][0] + " - " + selectordata[6][1] + " Age Range"}</MenuItem>
                     </Select>
                 )}
-                title="Q8 Drugs Waffle Chart"
+                title="Drug Admittance Distribution"
             />
             <Divider />
             <CardContent id={"wc"}>

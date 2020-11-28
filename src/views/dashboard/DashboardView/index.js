@@ -5,14 +5,14 @@ import {
   makeStyles
 } from '@material-ui/core';
 import Page from 'src/components/Page';
-import TotalPatients from './TotalPatients';
-import TotalAdmissions from './TotalAdmissions';
-import AverageStay from './AverageStay';
-import TotalUniqueDiagnoses from './TotalUniqueDiagnoses';
-import FirstMostCommonDiagnosis from './FirstMostCommonDiagnosis';
-import SecondMostCommonDiagnosis from './SecondMostCommonDiagnosis';
-import TotalUniquePrescriptions from './TotalUniquePrescriptions';
-import FirstMostCommonPrescription from './FirstMostCommonPrescription';
+import TotalPatients from './cards/TotalPatients';
+import TotalAdmissions from './cards/TotalAdmissions';
+import AverageStay from './cards/AverageStay';
+import TotalUniqueDiagnoses from './cards/TotalUniqueDiagnoses';
+import FirstMostCommonDiagnosis from './cards/FirstMostCommonDiagnosis';
+import SecondMostCommonDiagnosis from './cards/SecondMostCommonDiagnosis';
+import TotalUniquePrescriptions from './cards/TotalUniquePrescriptions';
+import FirstMostCommonPrescription from './cards/FirstMostCommonPrescription';
 import DiagnosesGroupedBarChart from './DiagnosesGroupedBarChart';
 import DiagnosesBubbleChart from './DiagnosesBubbleChart';
 import DiagnosesLineChart from './DiagnosesLineChart';
@@ -221,9 +221,7 @@ const Dashboard = () => {
             <DiagnosesTreeMap />
           </Grid>
         </Grid>
-
       </Container>
-  
     </Page>
   );
 };
