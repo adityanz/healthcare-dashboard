@@ -12,8 +12,8 @@ class WaffleChart extends React.Component {
             width: 0,
             height: 0
         };
-
     }
+
     componentDidMount() {
         const width = this.props.size[0]
         const height = this.props.size[1]
@@ -31,6 +31,7 @@ class WaffleChart extends React.Component {
 
         this.setState({ svg, width, height });
     }
+
     componentDidUpdate() {
         this.removeExistingBars();
         this.createBarChart();
@@ -42,9 +43,7 @@ class WaffleChart extends React.Component {
 
     removeExistingBars() {
         const { svg } = this.state;
-
         svg.selectAll("*").remove();
-
     }
 
     createBarChart() {
@@ -57,7 +56,6 @@ class WaffleChart extends React.Component {
         const selector = this.props.selector
 
         let arr = []
-
 
         dataset.forEach(function (d) {
             d.values.forEach(function (e) {
@@ -200,7 +198,6 @@ class WaffleChart extends React.Component {
             .orient('vertical')
             .labelOffset(5)
 
-
         svg.append("g")
             .attr("class", "legend")
             .attr("transform", "translate(" + (width - 10) + ", " + 10 + ")")
@@ -208,17 +205,14 @@ class WaffleChart extends React.Component {
 
         svg.select(".legend")
             .call(legend);
-        
+
     }
-
-
 
     render() {
         return (
             <svg />
         )
     }
-
 }
 
 export default WaffleChart;

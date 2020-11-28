@@ -15,8 +15,8 @@ class GroupedBarChart extends React.Component {
             height: null,
             margin: null
         };
-
     }
+
     componentDidMount() {
         const owidth = this.props.size[0]
         const oheight = this.props.size[1]
@@ -38,6 +38,7 @@ class GroupedBarChart extends React.Component {
 
         this.setState({ svg, div, width, height, margin });
     }
+
     componentDidUpdate() {
         this.removeExistingBars();
         this.createBarChart();
@@ -49,9 +50,7 @@ class GroupedBarChart extends React.Component {
 
     removeExistingBars() {
         const { svg } = this.state;
-
         svg.selectAll("*").remove();
-
     }
 
     createBarChart() {
@@ -78,27 +77,24 @@ class GroupedBarChart extends React.Component {
             return Object.keys(object).find(key => object[key] === value);
         }
 
-
         var xScale = d3.scaleBand()
             .range([0, width]) // output
             .padding(0.1)
 
         var yScale;
-        if (scale)
-        {
+        if (scale) {
             console.log("logarithmic")
             console.log(scale)
             yScale = d3.scaleLog()
                 .base(Math.E)
                 .domain([Math.exp(0), Math.exp(9)])
                 .range([height, 0]);        }
-        else{
+        else {
             console.log("logarithmic")
             console.log(scale)
             yScale = d3.scaleLinear()
                 .range([height, 0]); // output
             yScale.domain([0, d3.max(data, function (key) { return d3.max(key.values, function (d) { return d.value; }); })]);
-
         }
 
 
@@ -113,7 +109,6 @@ class GroupedBarChart extends React.Component {
         xScale.domain(dnames);
         xScale1.domain(gname).rangeRound([0, xScale.bandwidth()]);
 
-
         svg.append("g")
             .attr("class", "x axis")
             .attr("transform", "translate(0," + height + ")")
@@ -123,18 +118,15 @@ class GroupedBarChart extends React.Component {
             .attr("class", "y axis")
             .call(d3.axisLeft(yScale));
 
-
         var legend = d3l.legendColor()
             .scale(color)
             .shape('circle')
             .orient('vertical')
             .labelOffset(5)
 
-
         svg.append("g")
             .attr("class", "legend")
             .attr("transform", "translate(" + (width-100) + ", " + 20+")");
-
 
         svg.select(".legend")
             .call(legend);
@@ -144,7 +136,6 @@ class GroupedBarChart extends React.Component {
             .enter().append("g")
             .attr("class", "g")
             .attr("transform", function (d) { return "translate(" + xScale(d.diagnosis) + ",0)"; });
-
 
         slice.selectAll("rect")
             .data(function (d) { return d.values; })
@@ -189,7 +180,6 @@ class GroupedBarChart extends React.Component {
             .style("fill", function (d) { return color(d.distribution) })
             .text(function (d) { return d.distribution })
             .attr("text-anchor", "left")
-
 
 
         const xmid = xScale.range()[0] + (xScale.range()[1] - xScale.range()[0]) / 2.0;

@@ -47,7 +47,7 @@ const DiagnosesBarChart = ({ className, ...rest }) => {
     const handleChange = (event) => {
         setLoading(true)
         setSelector(event.target.value);
-    };
+    }
 
     return (
         <Card

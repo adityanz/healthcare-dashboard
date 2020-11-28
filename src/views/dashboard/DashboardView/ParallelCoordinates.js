@@ -11,8 +11,8 @@ class ParallelCoordinatesChart extends React.Component {
         this.state = {
             svg: null
         };
-
     }
+
     componentDidMount() {
         const owidth = this.props.size[0]
         const oheight = this.props.size[1]
@@ -27,9 +27,9 @@ class ParallelCoordinatesChart extends React.Component {
             .append("g")
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-
         this.setState({ svg });
     }
+
     componentDidUpdate() {
         this.removeExistingBars();
         this.createBarChart();
@@ -41,9 +41,7 @@ class ParallelCoordinatesChart extends React.Component {
 
     removeExistingBars() {
         const { svg } = this.state;
-
         svg.selectAll("*").remove();
-
     }
 
     createBarChart() {
@@ -51,7 +49,6 @@ class ParallelCoordinatesChart extends React.Component {
         const dataset = this.props.data
         const owidth = this.props.size[0]
         const oheight = this.props.size[1]
-
 
         var margin = { top: 20, right: 20, bottom: 70, left: 100 },
             width = owidth - margin.left - margin.right,
@@ -62,7 +59,7 @@ class ParallelCoordinatesChart extends React.Component {
 
         // var dval = dataset[0].values.map(function (d) { return d.distribution; });
         // var dig = dataset[0].values.map(function (d) { return d.value; });
-      
+
         // console.log("diagnoses", dimensions)
         // console.log("distribution", dval)
         // console.log("value", dig)
@@ -70,7 +67,6 @@ class ParallelCoordinatesChart extends React.Component {
         var color = d3.scaleOrdinal()
             .domain(["English", "Non-English", "Male", "Female"])
             .range(["#D73F47", "#3381E1", "#ED7A22", "#65A9A3"])
-
 
         let y = {}
         for (var i in dimensions) {
@@ -91,8 +87,6 @@ class ParallelCoordinatesChart extends React.Component {
             return d3.line()(dimensions.map(function (p) { { console.log("d", d) } { console.log("p", p) } { console.log("xp", x(p)) } { console.log("yp", y[p]) } { console.log("dp", (d[p])) } { console.log("ydp", y[p](d[p])) } return [x(p), y[p](d[p])]; }));
         }
 
-
-
         var legend = d3l.legendColor()
             .scale(color)
             .shape('circle')
@@ -108,7 +102,6 @@ class ParallelCoordinatesChart extends React.Component {
 
         svg.select(".legend")
             .call(legend);
-
 
         // Draw the lines
         svg
@@ -176,7 +169,6 @@ class ParallelCoordinatesChart extends React.Component {
         //     .style('opacity', 0);
 
         function mouseover(d) {
-
             let selected_specie = d.type
 
             console.log("highlighted", d.type)
@@ -197,19 +189,15 @@ class ParallelCoordinatesChart extends React.Component {
             d3.selectAll(".line")
                 .transition().duration(200).delay(1000)
                 .style("stroke", function (d) { return (color(d.type)) })
-                .style("opacity", "1")            
+                .style("opacity", "1")
         }
-
     }
-
-
 
     render() {
         return (
             <div ref={this.myRef} />
         )
     }
-
 }
 
 export default ParallelCoordinatesChart;

@@ -13,8 +13,8 @@ class TreeMap extends React.Component {
             width: null,
             height: null,
         };
-
     }
+
     componentDidMount() {
         const owidth = this.props.size[0]
         const oheight = this.props.size[1]
@@ -33,17 +33,15 @@ class TreeMap extends React.Component {
         this.setState({ height });
 
     }
+
     componentDidUpdate() {
         this.removeMap();
         this.createMap();
     }
 
-
     removeMap() {
         const { svg } = this.state;
-
         svg.selectAll("*").remove();
-
     }
 
     createMap() {
@@ -143,17 +141,13 @@ class TreeMap extends React.Component {
                 return tooltip.style("top", (event.pageY - 10) + "px").style("left", (event.pageX + 10) + "px");
             })
             .on("mouseout", function () { return tooltip.style("visibility", "hidden"); });
-
-
     }
-
 
     render() {
         return (
             <svg />
         )
     }
-
 }
 
 export default TreeMap;

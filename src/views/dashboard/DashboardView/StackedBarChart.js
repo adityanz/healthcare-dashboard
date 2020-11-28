@@ -15,8 +15,8 @@ class StackedBarChart extends React.Component {
             height: null,
             margin: null
         };
-
     }
+
     componentDidMount() {
         const owidth = this.props.size[0]
         const oheight = this.props.size[1]
@@ -31,13 +31,13 @@ class StackedBarChart extends React.Component {
             .append("g")
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-
         const div = d3.select("body").select("#sb").append("div")
             .attr("class", "tooltip-donut")
             .style("opacity", 0);
 
         this.setState({ svg, div, width, height,margin });
     }
+
     componentDidUpdate() {
         this.removeExistingBars();
         this.createBarChart();
@@ -49,9 +49,7 @@ class StackedBarChart extends React.Component {
 
     removeExistingBars() {
         const { svg } = this.state;
-
         svg.selectAll("*").remove();
-
     }
 
     createBarChart() {
@@ -62,7 +60,7 @@ class StackedBarChart extends React.Component {
         const { margin } = this.state;
 
         let output = this.props.data
-  
+
         var yScale = d3.scaleBand()
             .range([margin.top, height - margin.bottom])
             .padding(0.1)
@@ -75,19 +73,15 @@ class StackedBarChart extends React.Component {
 
         var zScale = d3.scaleOrdinal(d3.schemeCategory10)
 
-
-
         var keys = ["Government", "Medicaid", "Medicare", "Private", "Self Pay"]
         xScale.domain([0, 1700])
 
 
         yScale.domain(output.map(function (d) { return d.disease; }));
-
         zScale.domain(keys)
 
         console.log("keys")
         console.log(keys)
-
 
         console.log("output")
         console.log(output)
@@ -151,7 +145,6 @@ class StackedBarChart extends React.Component {
             .orient('vertical')
             .labelOffset(5)
 
-
         svg.append("g")
             .attr("class", "legend")
             .attr("transform", "translate(" + (width - 100) + ", " + (height-100) + ")")
@@ -159,8 +152,6 @@ class StackedBarChart extends React.Component {
 
         svg.select(".legend")
             .call(legend);
-
-
     }
 
     render() {

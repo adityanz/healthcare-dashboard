@@ -14,9 +14,8 @@ class ScatterPlot extends React.Component {
             height: null,
             margin: null
         };
-
-
     }
+
     componentDidMount() {
         const owidth = this.props.size[0]
         const oheight = this.props.size[1]
@@ -34,6 +33,7 @@ class ScatterPlot extends React.Component {
 
         this.setState({ svg, width, height, margin });
     }
+
     componentDidUpdate() {
         this.removeExistingBars();
         this.createBarChart();
@@ -45,9 +45,7 @@ class ScatterPlot extends React.Component {
 
     removeExistingBars() {
         const { svg } = this.state;
-
         svg.selectAll("*").remove();
-
     }
 
     createBarChart() {
@@ -57,10 +55,7 @@ class ScatterPlot extends React.Component {
         const { height } = this.state;
         const { margin } = this.state;
         const dataset = this.props.data
-
         const selector = this.props.selector
-
-    
 
         console.log("data", dataset);
 
@@ -75,11 +70,10 @@ class ScatterPlot extends React.Component {
         var xScale = d3.scaleLinear()
             .range([0, width]); // output
 
-        // 6. Y scale will use the randomly generate number 
+        // 6. Y scale will use the randomly generate number
         var yScale = d3.scaleLinear()
-            // .domain([0, 1]) // input 
-            .range([height, 0]); // output 
-
+            // .domain([0, 1]) // input
+            .range([height, 0]); // output
 
         var color = ["#D73F47", "#3381E1", "#ED7A22", "#65A9A3"];
 
@@ -93,14 +87,11 @@ class ScatterPlot extends React.Component {
 
         console.log("graphdata", dataset)
 
-
         xScale.domain([5, 130]);
-
         yScale.domain([0, d3.max(dig)]);
 
         // xScale.domain([0, d3.max(dataset, function (key) { return d3.max(key.values, function (d) { return d.distribution; }); })]);
         // yScale.domain([0, d3.max(dataset, function (key) { return d3.max(key.values, function (d) { return d.value; }); })]);
-
 
         svg.append("g")
             .attr("class", "x axis")
@@ -181,14 +172,11 @@ class ScatterPlot extends React.Component {
 
     }
 
-
-
     render() {
         return (
             <svg/>
         )
     }
-
 }
 
 export default ScatterPlot;

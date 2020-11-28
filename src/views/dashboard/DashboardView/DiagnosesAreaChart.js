@@ -70,10 +70,10 @@ function areaP(dataset) {
     return output
 }
 
-function getKeys(dataset)
-{
+function getKeys(dataset){
     return dataset.map(function (d) { return d.diagnosis; });
 }
+
 const DiagnosesLineChart = ({ className, ...rest }) => {
     const classes = useStyles();
     const theme = useTheme();

@@ -29,7 +29,6 @@ const useStyles = makeStyles(() => ({
 function waffleData(dataset,selector){
     let arr = []
 
-
     dataset.forEach(function (d) {
         d.values.forEach(function (e) {
             let o = {}

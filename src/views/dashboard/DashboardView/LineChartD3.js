@@ -10,8 +10,8 @@ class LineChartD3 extends React.Component {
         this.state = {
             svg: null
         };
-
     }
+
     componentDidMount() {
         const owidth = this.props.size[0]
         const oheight = this.props.size[1]
@@ -26,9 +26,9 @@ class LineChartD3 extends React.Component {
             .append("g")
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-
         this.setState({ svg });
     }
+
     componentDidUpdate() {
         this.removeExistingBars();
         this.createBarChart();
@@ -40,9 +40,7 @@ class LineChartD3 extends React.Component {
 
     removeExistingBars() {
         const { svg } = this.state;
-
         svg.selectAll("*").remove();
-
     }
 
     createBarChart() {
@@ -58,7 +56,6 @@ class LineChartD3 extends React.Component {
         // dataset = dataset.filter(d => d.age < 300)
         // dataset = dataset.filter(d => d.age > 0)
 
-
         var margin = { top: 20, right: 20, bottom: 70, left: 100 },
             width = owidth - margin.left - margin.right,
             height = oheight - margin.top - margin.bottom;
@@ -71,20 +68,17 @@ class LineChartD3 extends React.Component {
         console.log("distribution", dval)
         console.log("value", dig)
 
-
         // 5. X scale will use the index of our data
         var xScale = d3.scaleLinear()
             .range([0, width]); // output
 
-        // 6. Y scale will use the randomly generate number 
+        // 6. Y scale will use the randomly generate number
         var yScale = d3.scaleLinear()
-            // .domain([0, 1]) // input 
-            .range([height, 0]); // output 
-
+            // .domain([0, 1]) // input
+            .range([height, 0]); // output
 
         // xScale.domain(d3.extent(dataset, function (d) { return d.age; }))
         // yScale.domain([0, d3.max(dataset, function (key) { return d3.max(key.values, function (d) { return d.value; }); })]);
-
 
         var color = ["#D73F47", "#3381E1", "#ED7A22", "#65A9A3"];
 
@@ -98,14 +92,12 @@ class LineChartD3 extends React.Component {
 
         console.log("graphdata", dataset)
 
-
         xScale.domain([0, d3.max(dval)]);
 
         yScale.domain([0, d3.max(dig)]);
 
         // xScale.domain([0, d3.max(dataset, function (key) { return d3.max(key.values, function (d) { return d.distribution; }); })]);
         // yScale.domain([0, d3.max(dataset, function (key) { return d3.max(key.values, function (d) { return d.value; }); })]);
-
 
         svg.append("g")
             .attr("class", "x axis")
@@ -115,7 +107,6 @@ class LineChartD3 extends React.Component {
         svg.append("g")
             .attr("class", "y axis")
             .call(d3.axisLeft(yScale));
-
 
         // for (var singlekey = 0; singlekey < 1; singlekey++) {
         let single = Object.values(dataset[selector])[1]
@@ -127,7 +118,6 @@ class LineChartD3 extends React.Component {
             .x(function (d, i) { return xScale(d.age); }) // set the x values for the line generator
             .y(function (d) { return yScale(d.value); }) // set the y values for the line generator
             .curve(d3.curveMonotoneX) // apply smoothing to the line
-
 
         svg.append("path")
             .datum(single)
@@ -210,14 +200,11 @@ class LineChartD3 extends React.Component {
 
     }
 
-
-
     render() {
         return (
             <svg/>
         )
     }
-
 }
 
 export default LineChartD3;

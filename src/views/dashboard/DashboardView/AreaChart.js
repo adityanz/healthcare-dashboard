@@ -18,6 +18,7 @@ class AreaChart extends React.Component {
         };
 
     }
+
     componentDidMount() {
         const owidth = this.props.size[0]
         const oheight = this.props.size[1]
@@ -34,6 +35,7 @@ class AreaChart extends React.Component {
 
         this.setState({ svg, width, height });
     }
+
     componentDidUpdate() {
         this.removeExistingBars();
         this.createBarChart();
@@ -45,9 +47,7 @@ class AreaChart extends React.Component {
 
     removeExistingBars() {
         const { svg } = this.state;
-
         svg.selectAll("*").remove();
-
     }
 
     createBarChart() {
@@ -56,7 +56,6 @@ class AreaChart extends React.Component {
         const { height } = this.state;
 
         const output = this.props.data
-
 
         let data = output.filter(function (e) {
             return e.id < 299;
@@ -73,14 +72,10 @@ class AreaChart extends React.Component {
         console.log("originalData", data)
         console.log("pancake", stackedData)
 
-
-
         // color palette
         var color = d3.scaleOrdinal()
             .domain(keys)
             .range(d3.schemeSet2);
-
-
 
         //////////
         // AXIS //
@@ -115,8 +110,6 @@ class AreaChart extends React.Component {
             .range([height, 0]);
         svg.append("g")
             .call(d3.axisLeft(y).ticks(5))
-
-
 
         //////////
         // BRUSHING AND CHART //
@@ -187,8 +180,6 @@ class AreaChart extends React.Component {
                 .attr("d", area)
         }
 
-
-
         //////////
         // HIGHLIGHT GROUP //
         //////////
@@ -213,7 +204,6 @@ class AreaChart extends React.Component {
             .orient('vertical')
             .labelOffset(5)
 
-
         svg.append("g")
             .attr("class", "legend")
             .attr("transform", "translate(" + (width - 80) + ", " + 20 + ")")
@@ -221,18 +211,13 @@ class AreaChart extends React.Component {
 
         svg.select(".legend")
             .call(legend);
-
-
     }
-
-
 
     render() {
         return (
             <svg />
         )
     }
-
 }
 
 export default AreaChart;

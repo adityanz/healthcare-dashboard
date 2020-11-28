@@ -12,8 +12,8 @@ class BubbleChart extends React.Component {
             width: null,
             height: null,
         };
-
     }
+
     componentDidMount() {
         const owidth = this.props.size[0]
         const oheight = this.props.size[1]
@@ -32,6 +32,7 @@ class BubbleChart extends React.Component {
         this.setState({ height });
 
     }
+
     componentDidUpdate() {
         this.removeExistingBubbles();
         this.createBarChart();
@@ -43,9 +44,7 @@ class BubbleChart extends React.Component {
 
     removeExistingBubbles() {
         const { svg } = this.state;
-
         svg.selectAll("*").remove();
-
     }
 
     createBarChart() {
@@ -81,7 +80,6 @@ class BubbleChart extends React.Component {
         var bubble = d3.pack(dataset)
             .size([diameter, diameter])
             .padding(1.5);
-
 
         var nodes = d3.hierarchy(dataset)
             .sum(function (d) { return d.Count; });
@@ -121,7 +119,7 @@ class BubbleChart extends React.Component {
             .style("border-radius", "6px")
             .style("font", "12px sans-serif")
             .text("tooltip");
-            
+
         node.append("circle")
             .attr("r", function (d) {
                 return d.r;
@@ -155,10 +153,10 @@ class BubbleChart extends React.Component {
             .attr("fill", "white");
 
         node
-                    .on("mouseover", function (d) {
-                        tooltip.text(d.path[0].__data__.data.Name + ": " + d.path[0].__data__.data.Count);
-                        tooltip.style("visibility", "visible");
-                    })
+            .on("mouseover", function (d) {
+                tooltip.text(d.path[0].__data__.data.Name + ": " + d.path[0].__data__.data.Count);
+                tooltip.style("visibility", "visible");
+            })
             .on("mousemove", function (event, d) {
                 return tooltip.style("top", (event.pageY - 10) + "px").style("left", (event.pageX + 10) + "px");
             })
@@ -188,7 +186,6 @@ class BubbleChart extends React.Component {
 
         function mouseover() {
             d3.select(this).attr("opacity", .5)
-
         }
 
         function mouseout() {
@@ -198,18 +195,13 @@ class BubbleChart extends React.Component {
         function zoomed({ transform }) {
             nodes.attr("transform", transform);
         }
-
-
     }
-
-
 
     render() {
         return (
             <svg />
         )
     }
-
 }
 
 export default BubbleChart;

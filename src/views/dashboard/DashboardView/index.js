@@ -2,6 +2,7 @@ import React from 'react';
 import {
   Container,
   Grid,
+  Box,
   makeStyles
 } from '@material-ui/core';
 import Page from 'src/components/Page';
@@ -126,101 +127,47 @@ const Dashboard = () => {
         </Grid>
       </Container>
 
-      <Container maxWidth={false}>
-        <Grid
-          container
-          spacing={3}
-        >
-          <Grid
-            item
-          >
-            <DiagnosesBubbleChart />
-          </Grid>
-        </Grid>
 
+      <Container maxWidth={false}>
+        <Box mt={3}>
+          <DiagnosesBubbleChart />
+        </Box>
       </Container>
 
       <Container maxWidth={false}>
-
-        <Grid
-          container
-          spacing={3}
-          title="Diagnoses Distribution of Admitted Patients"
-        >
-          <Grid
-            item
-          >
-            <DiagnosesGroupedBarChart />
-          </Grid>
-        </Grid>
-
+        <Box mt={3}>
+          <DiagnosesGroupedBarChart />
+        </Box>
       </Container>
 
       <Container maxWidth={false}>
-        <Grid
-          container
-          spacing={3}
-        >
-          <Grid
-            item
-          >
-            <DiagnosesAreaChart />
-          </Grid>
-        </Grid>
-
+        <Box mt={3}>
+          <DiagnosesAreaChart />
+        </Box>
       </Container>
 
       <Container maxWidth={false}>
-        <Grid
-          container
-          spacing={3}
-        >
-          <Grid
-            item
-          >
-            <DiagnosesStackedBarChart />
-          </Grid>
-        </Grid>
-
+        <Box mt={3}>
+          <DiagnosesStackedBarChart />
+        </Box>
       </Container>
 
       <Container maxWidth={false}>
-        <Grid
-          container
-          spacing={3}
-        >
-          <Grid
-            item
-          >
-            <DiagnosesLineChart />
-          </Grid>
-        </Grid>
-
+        <Box mt={3}>
+          <DiagnosesLineChart />
+        </Box>
       </Container>
-      <Container maxWidth={false}>
-        <Grid
-          container
-          spacing={3}
-        >
-          <Grid
-            item
-          >
-            <DiagnosesWaffleChart />
-          </Grid>
-        </Grid>
 
-      </Container>
       <Container maxWidth={false}>
-        <Grid
-          container
-          spacing={3}
-        >
-          <Grid
-            item
-          >
-            <DiagnosesTreeMap />
-          </Grid>
-        </Grid>
+        <Box mt={3}>
+          <DiagnosesWaffleChart />
+        </Box>
+      </Container>
+
+      <Container maxWidth={false}>
+        <Box mt={3}>
+          <DiagnosesTreeMap />
+        </Box>
       </Container>
     </Page>
   );
