@@ -99,7 +99,10 @@ class GroupedBarChart extends React.Component {
 
         var color = d3.scaleOrdinal()
         .domain(gname)
-        .range(d3.schemeCategory10)
+        .range(["#60a3bc", "#e55039", "#4a69bd", "#f6b93b", "#78e08f",
+                "#0a3d62", "#b71540", "#0c2461", "#e58e26", "#079992",
+                "#3c6382", "#eb2f06", "#1e3799", "#fa983a", "#38ada9",
+                "#82ccdd", "#f8c291", "#6a89cc", "#fad390", "#b8e994"]);
 
         console.log("graphdata", data)
 
@@ -140,6 +143,7 @@ class GroupedBarChart extends React.Component {
                       "#0a3d62", "#b71540", "#0c2461", "#e58e26", "#079992",
                       "#3c6382", "#eb2f06", "#1e3799", "#fa983a", "#38ada9",
                       "#82ccdd", "#f8c291", "#6a89cc", "#fad390", "#b8e994"];
+
         slice.selectAll("rect")
             .data(function (d) { return d.values; })
             .enter().append("rect")

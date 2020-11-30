@@ -61,7 +61,10 @@ class AreaChart extends React.Component {
             return e.id < 299;
         });
 
-        var color = d3.scaleOrdinal(d3.schemeCategory10)
+        var color = d3.scaleOrdinal().range(["#60a3bc", "#e55039", "#4a69bd", "#f6b93b", "#78e08f",
+                "#0a3d62", "#b71540", "#0c2461", "#e58e26", "#079992",
+                "#3c6382", "#eb2f06", "#1e3799", "#fa983a", "#38ada9",
+                "#82ccdd", "#f8c291", "#6a89cc", "#fad390", "#b8e994"]);
 
         var keys = this.props.keys
         console.log(keys)
@@ -75,7 +78,10 @@ class AreaChart extends React.Component {
         // color palette
         var color = d3.scaleOrdinal()
             .domain(keys)
-            .range(d3.schemeSet2);
+            .range(["#60a3bc", "#e55039", "#4a69bd", "#f6b93b", "#78e08f",
+                    "#0a3d62", "#b71540", "#0c2461", "#e58e26", "#079992",
+                    "#3c6382", "#eb2f06", "#1e3799", "#fa983a", "#38ada9",
+                    "#82ccdd", "#f8c291", "#6a89cc", "#fad390", "#b8e994"]);
 
         //////////
         // AXIS //
@@ -85,6 +91,7 @@ class AreaChart extends React.Component {
         var x = d3.scaleLinear()
             .domain(d3.extent(data, function (d) { return d.id; }))
             .range([0, width]);
+
         var xAxis = svg.append("g")
             .attr("transform", "translate(0," + height + ")")
             .call(d3.axisBottom(x).ticks(5))

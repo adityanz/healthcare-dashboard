@@ -71,7 +71,7 @@ class StackedBarChart extends React.Component {
         var xScale = d3.scaleLinear()
             .rangeRound([0, width]);
 
-        var zScale = d3.scaleOrdinal(d3.schemeCategory10)
+        var zScale = d3.scaleOrdinal().range(["#60a3bc", "#e55039", "#4a69bd", "#f6b93b", "#78e08f"]);
 
         var keys = ["Government", "Medicaid", "Medicare", "Private", "Self Pay"]
         xScale.domain([0, 1700])
@@ -97,7 +97,6 @@ class StackedBarChart extends React.Component {
             .attr("transform", "translate(0," + height + ")")
             .call(d3.axisBottom(xScale).ticks(16, "f"));
 
-        var colors = ["#60a3bc", "#e55039", "#4a69bd", "#f6b93b", "#78e08f"];
         svg.append("g")
             .selectAll("g")
             .data(d3.stack().keys(keys)(output))
@@ -107,7 +106,7 @@ class StackedBarChart extends React.Component {
             .enter().append("rect")
             .attr("y", function (d) { { console.log("y", d) } return yScale(d.data.disease) })
             .attr("x", function (d) { { console.log("x", d) } return xScale(d[0]) })
-            .style("fill", function (d, i) { return colors[i]; })
+            .style("fill", function (d, i) { return zScale[i]; })
             .attr("height", function (d) {
                 return yScale.bandwidth()
             })

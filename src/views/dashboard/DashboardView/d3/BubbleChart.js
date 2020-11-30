@@ -1,6 +1,7 @@
 import React from 'react';
 import * as d3 from 'd3';
 import { range } from 'd3';
+import * as d3l from 'd3-svg-legend'
 
 class BubbleChart extends React.Component {
     constructor(props) {
@@ -74,7 +75,10 @@ class BubbleChart extends React.Component {
         console.log(dataset)
 
         var diameter = 300;
-        var color = d3.scaleOrdinal(d3.schemeCategory10);
+        var color = d3.scaleOrdinal().range(["#60a3bc", "#e55039", "#4a69bd", "#f6b93b", "#78e08f",
+                      "#0a3d62", "#b71540", "#0c2461", "#e58e26", "#079992",
+                      "#3c6382", "#eb2f06", "#1e3799", "#fa983a", "#38ada9",
+                      "#82ccdd", "#f8c291", "#6a89cc", "#fad390", "#b8e994"]);
 
         var bubble = d3.pack(dataset)
             .size([diameter, diameter])
@@ -84,7 +88,10 @@ class BubbleChart extends React.Component {
             .sum(function (d) { return d.Count; });
 
         var diameter = 600;
-        var color = d3.scaleOrdinal(d3.schemeCategory10);
+        var color = d3.scaleOrdinal().range(["#60a3bc", "#e55039", "#4a69bd", "#f6b93b", "#78e08f",
+                      "#0a3d62", "#b71540", "#0c2461", "#e58e26", "#079992",
+                      "#3c6382", "#eb2f06", "#1e3799", "#fa983a", "#38ada9",
+                      "#82ccdd", "#f8c291", "#6a89cc", "#fad390", "#b8e994"]);
 
         var bubble = d3.pack(dataset)
             .size([width, height])
@@ -121,8 +128,8 @@ class BubbleChart extends React.Component {
 
         var colors = ["#60a3bc", "#e55039", "#4a69bd", "#f6b93b", "#78e08f",
                       "#0a3d62", "#b71540", "#0c2461", "#e58e26", "#079992",
-                      "#3c6382", "#eb2f06", "#1e3799", "#fa983a", "#38ada9",
-                      "#82ccdd", "#f8c291", "#6a89cc", "#fad390", "#b8e994"];
+                       "#3c6382", "#eb2f06", "#1e3799", "#fa983a", "#38ada9",
+                       "#82ccdd", "#f8c291", "#6a89cc", "#fad390", "#b8e994"];
         node.append("circle")
             .attr("r", function (d) {
                 return d.r;

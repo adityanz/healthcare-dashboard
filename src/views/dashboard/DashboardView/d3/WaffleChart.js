@@ -121,7 +121,7 @@ class WaffleChart extends React.Component {
             squareValue = 0,
             gap = 1,
             theData = [];
-            
+
         //total
         total = d3.sum(data, function (d) { return d.total; });
 
@@ -150,8 +150,11 @@ class WaffleChart extends React.Component {
             );
         });
 
-        var colors = ["#60a3bc", "#e55039", "#4a69bd", "#f6b93b", "#78e08f"];
-
+        var color = d3.scaleOrdinal().range(["#60a3bc", "#e55039", "#4a69bd", "#f6b93b", "#78e08f",
+                      "#0a3d62", "#b71540", "#0c2461", "#e58e26", "#079992",
+                      "#3c6382", "#eb2f06", "#1e3799", "#fa983a", "#38ada9",
+                      "#82ccdd", "#f8c291", "#6a89cc", "#fad390", "#b8e994"]);
+                      
         width = (squareSize * widthSquares) + widthSquares * gap + 25;
         height = (squareSize * heightSquares) + heightSquares * gap + 25;
         console.log("end")
@@ -179,7 +182,6 @@ class WaffleChart extends React.Component {
                 let row = i % heightSquares;
                 return (heightSquares * squareSize) - ((row * squareSize) + (row * gap))
             })
-            .style("fill", function (d, i) { return colors[i]; })
             .append("title")
             .text(function (d, i) {
                 return "diagnosis range: " + data[d.groupIndex].diagnosis + " | " + d.total + " , " + d.units + "%"
@@ -193,7 +195,7 @@ class WaffleChart extends React.Component {
             // })
             // .on("mouseout", function () { return tooltip.style("visibility", "hidden"); });
 
-        var color = d3.scaleOrdinal(d3.schemeCategory10);
+
         var legend = d3l.legendColor()
             .scale(color)
             .shape('circle')
