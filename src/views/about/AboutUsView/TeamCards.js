@@ -8,31 +8,31 @@ export const cardData = [
 
  {
   title: "Tim",
-  excerpt: "Our Sponsor!",
+  excerpt: "Our Sponsor",
   image: tim
  },
 
  {
   title: "Chia",
-  excerpt: "Student at USF",
+  excerpt: "Senior at USF",
   image: chia
  },
 
  {
   title: "Aditya",
-  excerpt: "Student at USF",
+  excerpt: "Senior at USF",
   image: aditya
  },
 
  {
   title: "Jochem",
-  excerpt: "Student at USF",
+  excerpt: "Senior at USF",
   image: jochem
  },
 
  {
   title: "Stokala",
-  excerpt: "Student at USF",
+  excerpt: "Senior at USF",
   image: stokala
  },
 ]
