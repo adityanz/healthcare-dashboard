@@ -46,7 +46,6 @@ const AboutUs = ({className, ...rest}) => {
         display="flex"
         flexDirection="column"
         height="100%"
-        width="100%"
         justifyContent="left"
       >
         <Container maxWidth="md">
@@ -64,7 +63,6 @@ const AboutUs = ({className, ...rest}) => {
             align="left"
             color="textSecondary"
             variant="h4"
-            style={{whiteSpace: 'pre-line'}}
           >
           A journey towards creating a Healthcare Data story through data visualizations
           using React and D3.js. Our final product will be a dashboard that shows the
@@ -108,7 +106,6 @@ const AboutUs = ({className, ...rest}) => {
             align="left"
             color="textSecondary"
             variant="h4"
-            style={{whiteSpace: 'pre-line'}}
           >
             Before even beginnign to create this dashboard, Chia, Jochem and Aditya were tasked with completing three mini
             projects that would serve as the building blocks for our big project. Each project addressed the three main areas
@@ -130,7 +127,6 @@ const AboutUs = ({className, ...rest}) => {
             align="left"
             color="textSecondary"
             variant="h4"
-            style={{whiteSpace: 'pre-line'}}
           >
             Our first mini project involved creating three basic visualizations with the dataset of our choice to help us
             become familiar with using React and D3.js together. This small intro to creating simple data visualizations
@@ -150,7 +146,6 @@ const AboutUs = ({className, ...rest}) => {
             align="left"
             color="textSecondary"
             variant="h4"
-            style={{whiteSpace: 'pre-line'}}
           >
             Our second mini project involved writing some queries to familiarize ourselves with the data we would be working
             with through a local Jupyter Notebook connected to the local database hosted on PostgreSQL. This mini project
@@ -171,7 +166,6 @@ const AboutUs = ({className, ...rest}) => {
             align="left"
             color="textSecondary"
             variant="h4"
-            style={{whiteSpace: 'pre-line'}}
           >
             Our third and final mini project allowed us to create a local API layer using Python, FastAPI, and Postman, to
             generate a REST API to interface with. Our API is set up to return its results formatted in JSON. This was later
@@ -190,7 +184,6 @@ const AboutUs = ({className, ...rest}) => {
             align="left"
             color="textSecondary"
             variant="h4"
-            style={{whiteSpace: 'pre-line'}}
           >
             In order to start building our final product, we first came up with questions we could answer through different
             interactive visualizations. Then, we connected our API to Google BigQuery, and as a result we were able to query

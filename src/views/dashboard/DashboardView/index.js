@@ -43,6 +43,10 @@ const Dashboard = () => {
     >
       <Container maxWidth={false}>
         <Grid
+          display="flex"
+          flexDirection="column"
+          height="100%"
+          justifyContent="center"
           container
           spacing={3}
         >

@@ -14,25 +14,25 @@ export const cardData = [
 
  {
   title: "Chia",
-  excerpt: "Senior at USF",
+  excerpt: "CS Student at USF",
   image: chia
  },
 
  {
   title: "Aditya",
-  excerpt: "Senior at USF",
+  excerpt: "CS Student at USF",
   image: aditya
  },
 
  {
   title: "Jochem",
-  excerpt: "Senior at USF",
+  excerpt: "CS Student at USF",
   image: jochem
  },
 
  {
   title: "Stokala",
-  excerpt: "Senior at USF",
+  excerpt: "Student at USF",
   image: stokala
  },
 ]

@@ -26,6 +26,9 @@ const useStyles = makeStyles((theme) => ({
 const HomeView = () => {
   const classes = useStyles();
 
+  let databaseURL = "https://physionet.org/content/mimiciii/1.4/";
+  let dcoumentationURL = "https://mimic.physionet.org/about/mimic/";
+
   return (
     <Page
       className={classes.root}
@@ -35,20 +38,23 @@ const HomeView = () => {
         display="flex"
         flexDirection="column"
         height="100%"
-        justifyContent="center"
+        justifyContent="left"
       >
         <Container maxWidth="md">
           <Typography
-            align="center"
+            align="left"
             color="textPrimary"
             variant="h1"
+            style={{whiteSpace: 'pre-line'}}
           >
+            {"\n"}
+            {"\n"}
             Welcome to our Healthcare Dashboard!
           </Typography>
           <Typography
-            align="center"
-            color="textPrimary"
-            variant="subtitle1"
+            align="left"
+            color="textSecondary"
+            variant="h4"
             style={{whiteSpace: 'pre-line'}}
           >
             {"\n"}
@@ -58,8 +64,21 @@ const HomeView = () => {
             with over 40 thousand patients who stayed in critical care units of the Beth
             Israel Deaconess Medical Center between 2001 - 2012.
           </Typography>
-          <Box textAlign="center">
-          </Box>
+          <Typography
+            align="left"
+            color="textSecondary"
+            variant="h5"
+            style={{whiteSpace: 'pre-line'}}
+          >
+            {"\n"}
+            The dataset includes information about demographics, lab test results, procedures,
+            medications, diagnoses, transfers, and even caregiver notes in 40 different tables.
+            {"\n"}
+            {"\n"}
+            The latest version of MIMIC-III can be found <a href={databaseURL}>here</a>
+            {"\n"}
+            Documentation about MIMIC-III can be found <a href={dcoumentationURL}>here</a>
+          </Typography>
         </Container>
       </Box>
     </Page>

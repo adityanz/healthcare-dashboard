@@ -83,8 +83,10 @@ const DiagnosesBarChart = ({ className, ...rest }) => {
            </CardContent>
          <Divider />
          <Box
-           display="flex"
-           justifyContent="flex-end"
+         display="flex"
+         flexDirection="column"
+         height="100%"
+         justifyContent="center"
            p={2}
          >
                 {/* <Button

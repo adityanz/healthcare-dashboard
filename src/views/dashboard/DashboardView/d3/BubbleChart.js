@@ -19,7 +19,7 @@ class BubbleChart extends React.Component {
         const owidth = this.props.size[0]
         const oheight = this.props.size[1]
 
-        var margin = { top: 20, right: 20, bottom: 70, left: 100 },
+        var margin = { top: 20, right: 20, bottom: 70, left: 20 },
             width = owidth - margin.left - margin.right,
             height = oheight - margin.top - margin.bottom;
 
