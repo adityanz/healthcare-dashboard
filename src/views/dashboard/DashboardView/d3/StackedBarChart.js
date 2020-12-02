@@ -21,7 +21,7 @@ class StackedBarChart extends React.Component {
         const owidth = this.props.size[0]
         const oheight = this.props.size[1]
 
-        var margin = { top: 20, right: 20, bottom: 20, left: 70 },
+        var margin = { top: 20, right: 20, bottom: 20, left: 160 },
             width = owidth - margin.left - margin.right,
             height = oheight - margin.top - margin.bottom;
 

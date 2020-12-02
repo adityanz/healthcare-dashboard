@@ -1,6 +1,6 @@
 import React from 'react';
 import * as d3 from 'd3';
-import './GroupedBarChart.css'
+// import './GroupedBarChart.css'
 import * as d3l from 'd3-svg-legend'
 
 class GroupedBarChart extends React.Component {
@@ -31,10 +31,16 @@ class GroupedBarChart extends React.Component {
             .append("g")
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-        const div = d3.select("body").select("#gbc").append("div")
-            .attr("class", "tooltip-donut")
-            .style("opacity", 0);
-
+        var div = d3.select("body").select("#gbc").append("div")
+        .style("position", "absolute")
+        .style("z-index", "10")
+        .style("visibility", "hidden")
+        .style("color", "white")
+        .style("padding", "8px")
+        .style("background-color", "rgba(0, 0, 0, 0.75)")
+        .style("border-radius", "6px")
+        .style("font", "12px sans-serif")
+        .text("tooltip");
         this.setState({ svg, div, width, height, margin });
     }
 
@@ -54,7 +60,7 @@ class GroupedBarChart extends React.Component {
 
     createBarChart() {
         const { svg } = this.state;
-        const { div } = this.state;
+        var { div } = this.state;
         const { width } = this.state;
         const { height } = this.state;
         const { margin } = this.state;
@@ -118,7 +124,7 @@ class GroupedBarChart extends React.Component {
 
         svg.append("g")
             .attr("class", "y axis")
-            .call(d3.axisLeft(yScale).tickFormat(d3.formatPrefix(".0", 1e1)));
+            .call(d3.axisLeft(yScale).tickFormat(d3.formatPrefix(".0",1e1)));
 
         var legend = d3l.legendColor()
             .scale(color)
@@ -151,31 +157,16 @@ class GroupedBarChart extends React.Component {
             .attr("x", function (d) { { console.log("x", d.distribution) } return xScale1(d.distribution); })
             .attr("y", function (d) { { console.log(d.value) } return yScale(d.value); })
             .style("fill", function (d,i) { return colors[i]; })
-
             .attr("height", function (d) { return height - yScale(d.value); })
-            .on("mouseover", function (event, d) {
-                d3.select(this).transition()
-                    .duration('50')
-                    .attr('opacity', .50);
-                console.log(d, event)
-                /// add to html
-                div.transition()
-                    .duration(50)
-                    .style("opacity", 1)
-
-                div.html(label +": " + d.distribution + "<br>" + "Amount: " + d.value)
-                    .style("left", (event.pageX - 30) + "px")
-                    .style("top", (event.pageY - 15) + "px")
-
+            .on("mouseover", function (d) {
+                console.log(d.path[0].__data__)
+                div.text("Gender: "+ d.path[0].__data__.distribution + ": " + "Amount: "+ d.path[0].__data__.value);
+                div.style("visibility", "visible");
             })
-            .on("mouseout", function (d) {
-                d3.select(this).transition()
-                    .duration('50')
-                    .attr('opacity', 1)
-                div.transition()
-                    .duration('50')
-                    .style("opacity", 0)
+            .on("mousemove", function (event, d) {
+                return div.style("top", (event.pageY - 10) + "px").style("left", (event.pageX + 10) + "px");
             })
+            .on("mouseout", function () { return div.style("visibility", "hidden"); });
 
         let size = 1
         svg.selectAll("g")
