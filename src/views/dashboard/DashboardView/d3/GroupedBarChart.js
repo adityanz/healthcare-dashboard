@@ -118,7 +118,7 @@ class GroupedBarChart extends React.Component {
 
         svg.append("g")
             .attr("class", "y axis")
-            .call(d3.axisLeft(yScale));
+            .call(d3.axisLeft(yScale).tickFormat(d3.formatPrefix(".0", 1e1)));
 
         var legend = d3l.legendColor()
             .scale(color)
