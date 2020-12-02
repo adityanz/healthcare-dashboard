@@ -33,7 +33,13 @@ class AreaChart extends React.Component {
             .append("g")
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-        this.setState({ svg, width, height });
+        const legend = d3.select("body").select("#ac").append("svg")
+            .attr("width", 300 + margin.left + margin.right)
+            .attr("height", 250 + margin.top + margin.bottom)
+            .append("g")
+            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+        this.setState({ svg, legend, width, height });
     }
 
     componentDidUpdate() {
@@ -54,6 +60,7 @@ class AreaChart extends React.Component {
         const { svg } = this.state;
         const { width } = this.state;
         const { height } = this.state;
+        const { legend } = this.state;
 
         const output = this.props.data
 
@@ -209,19 +216,19 @@ class AreaChart extends React.Component {
             d3.selectAll(".myArea").style("opacity", 1)
         }
 
-        var legend = d3l.legendColor()
+        var legendf = d3l.legendColor()
             .scale(color)
             .shape('circle')
             .orient('vertical')
             .labelOffset(5)
 
-        svg.append("g")
+        legend.append("g")
             .attr("class", "legend")
-            .attr("transform", "translate(" + (width - 80) + ", " + 20 + ")")
+            // .attr("transform", "translate(" + (width - 80) + ", " + 20 + ")")
             .style("font-size", "12")
 
-        svg.select(".legend")
-            .call(legend);
+        legend.select(".legend")
+            .call(legendf);
     }
 
     render() {

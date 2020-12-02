@@ -154,7 +154,7 @@ class WaffleChart extends React.Component {
                       "#0a3d62", "#b71540", "#0c2461", "#e58e26", "#079992",
                       "#3c6382", "#eb2f06", "#1e3799", "#fa983a", "#38ada9",
                       "#82ccdd", "#f8c291", "#6a89cc", "#fad390", "#b8e994"]);
-                      
+
         width = (squareSize * widthSquares) + widthSquares * gap + 25;
         height = (squareSize * heightSquares) + heightSquares * gap + 25;
         console.log("end")
@@ -204,7 +204,7 @@ class WaffleChart extends React.Component {
 
         svg.append("g")
             .attr("class", "legend")
-            .attr("transform", "translate(" + (width - 10) + ", " + 10 + ")")
+            .attr("transform", "translate(" + (width - 5) + ", " + 10 + ")")
             .style("font-size", "12")
 
         svg.select(".legend")
