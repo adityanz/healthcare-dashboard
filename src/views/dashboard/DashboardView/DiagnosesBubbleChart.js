@@ -34,7 +34,7 @@ const DiagnosesBarChart = ({ className, ...rest }) => {
 
     console.log(selector)
     React.useEffect(() => {
-        let apiUrl = 'https://visualizing-healthcare-data.wm.r.appspot.com/total_dist/' + selector + '/';
+      let apiUrl = 'https://raw.githubusercontent.com/adityanz/healthcare-dashboard/master/src/data/total_dist/' + selector + '.json';
         fetch(apiUrl)
             .then((response) => response.json())
             .then(result => {

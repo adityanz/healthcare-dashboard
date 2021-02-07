@@ -26,7 +26,7 @@ const useStyles = makeStyles(() => ({
     root: {}
 }));
 
-const DiagnosesLineChart= ({ className, ...rest }) => {
+const DiagnosesScatterPlot = ({ className, ...rest }) => {
     const classes = useStyles();
     const theme = useTheme();
 
@@ -101,8 +101,8 @@ const DiagnosesLineChart= ({ className, ...rest }) => {
     );
 };
 
-DiagnosesLineChart.propTypes = {
+DiagnosesScatterPlot.propTypes = {
     className: PropTypes.string
 };
 
-export default DiagnosesLineChart;
+export default DiagnosesScatterPlot;

@@ -96,7 +96,7 @@ const DiagnosesStackedBarChart = ({ className, ...rest }) => {
 
     console.log(selector)
     React.useEffect(() => {
-        let apiUrl = 'https://visualizing-healthcare-data.wm.r.appspot.com/data/insurance/' + url + '/';
+        let apiUrl = 'https://raw.githubusercontent.com/adityanz/healthcare-dashboard/master/src/data/insurance/' + url + '';
         fetch(apiUrl)
             .then((response) => response.json())
             .then(result => stackedbarP(result,selector))
