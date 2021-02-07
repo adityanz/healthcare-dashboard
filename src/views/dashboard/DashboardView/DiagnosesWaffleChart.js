@@ -81,7 +81,7 @@ const DiagnosesWaffleChart = ({ className, ...rest }) => {
     let [selector, setSelector] = React.useState(0);
 
     React.useEffect(() => {
-        let apiUrl = 'https://visualizing-healthcare-data.wm.r.appspot.com/data/substance_abuse';
+        let apiUrl = 'https://raw.githubusercontent.com/adityanz/healthcare-dashboard/master/src/data/substance_abuse.json';
         fetch(apiUrl)
             .then((response) => response.json())
             .then(result => {

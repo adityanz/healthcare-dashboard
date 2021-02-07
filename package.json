@@ -1,5 +1,6 @@
 {
-  "name": "react-material-dashboard",
+  "name": "healthcare-dashboard",
+  "homepage": "http://visualizing-healthcare-data.github.io/mini-visualization-project-adityanz",
   "author": "DeviasIO",
   "licence": "MIT",
   "version": "1.0.0",
@@ -64,5 +65,9 @@
     "eslint-plugin-react": "^7.20.3",
     "eslint-plugin-react-hooks": "^2.5.1",
     "prettier": "^1.19.1"
+  },
+  "scripts": {
+  "predeploy": "npm run build",
+  "deploy": "gh-pages -d build"
   }
 }

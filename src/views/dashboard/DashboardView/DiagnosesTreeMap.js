@@ -32,7 +32,7 @@ const DiagnosesScatterPlot = ({ className, ...rest }) => {
     let [data, setData] = React.useState([]);
 
     React.useEffect(() => {
-        let apiUrl = 'https://visualizing-healthcare-data.wm.r.appspot.com/data/babies';
+        let apiUrl = 'https://raw.githubusercontent.com/adityanz/healthcare-dashboard/master/src/data/babies.json';
         fetch(apiUrl)
             .then((response) => response.json())
             .then(result => {

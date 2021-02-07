@@ -26,7 +26,7 @@ const useStyles = makeStyles(() => ({
     root: {}
 }));
 
-const DiagnosesScatterPlot = ({ className, ...rest }) => {
+const DiagnosesLineChart= ({ className, ...rest }) => {
     const classes = useStyles();
     const theme = useTheme();
 
@@ -37,7 +37,7 @@ const DiagnosesScatterPlot = ({ className, ...rest }) => {
 
     console.log(selector)
     React.useEffect(() => {
-        let apiUrl = 'https://visualizing-healthcare-data.wm.r.appspot.com/data/icu_mortality';
+        let apiUrl = 'https://raw.githubusercontent.com/adityanz/healthcare-dashboard/master/src/data/icu_mortality.json';
         fetch(apiUrl)
             .then((response) => response.json())
             .then(result => {
@@ -101,8 +101,8 @@ const DiagnosesScatterPlot = ({ className, ...rest }) => {
     );
 };
 
-DiagnosesScatterPlot.propTypes = {
+DiagnosesLineChart.propTypes = {
     className: PropTypes.string
 };
 
-export default DiagnosesScatterPlot;
+export default DiagnosesLineChart;

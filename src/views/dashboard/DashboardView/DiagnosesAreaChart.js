@@ -82,7 +82,7 @@ const DiagnosesLineChart = ({ className, ...rest }) => {
     let [keys, setKeys] = React.useState([]);
 
     React.useEffect(() => {
-        let apiUrl = '3';
+        let apiUrl = 'https://raw.githubusercontent.com/adityanz/healthcare-dashboard/master/src/data/age.json';
         fetch(apiUrl)
             .then((response) => response.json())
             .then(result => {
