@@ -27,7 +27,6 @@ const useStyles = makeStyles(() => ({
 
 function areaP(dataset) {
     let arr = []
-    console.log("aledata", dataset)
     console.log("dataprocess values")
     dataset.forEach(function (d) {
         d.values.forEach(function (e) {
@@ -83,7 +82,7 @@ const DiagnosesLineChart = ({ className, ...rest }) => {
     let [keys, setKeys] = React.useState([]);
 
     React.useEffect(() => {
-        let apiUrl = 'https://visualizing-healthcare-data.wm.r.appspot.com/data/age/';
+        let apiUrl = '3';
         fetch(apiUrl)
             .then((response) => response.json())
             .then(result => {
