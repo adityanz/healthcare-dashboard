@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/healthcare-dashboard/static/css/main.9cf8a415.chunk.css",
+    "main.js": "/healthcare-dashboard/static/js/main.149fbeaa.chunk.js",
+    "main.js.map": "/healthcare-dashboard/static/js/main.149fbeaa.chunk.js.map",
+    "runtime-main.js": "/healthcare-dashboard/static/js/runtime-main.db3ad30e.js",
+    "runtime-main.js.map": "/healthcare-dashboard/static/js/runtime-main.db3ad30e.js.map",
+    "static/css/2.18fb2ca0.chunk.css": "/healthcare-dashboard/static/css/2.18fb2ca0.chunk.css",
+    "static/js/2.eede569d.chunk.js": "/healthcare-dashboard/static/js/2.eede569d.chunk.js",
+    "static/js/2.eede569d.chunk.js.map": "/healthcare-dashboard/static/js/2.eede569d.chunk.js.map",
+    "index.html": "/healthcare-dashboard/index.html",
+    "precache-manifest.a62bd425e61c475bf17e773744d1d284.js": "/healthcare-dashboard/precache-manifest.a62bd425e61c475bf17e773744d1d284.js",
+    "service-worker.js": "/healthcare-dashboard/service-worker.js",
+    "static/css/2.18fb2ca0.chunk.css.map": "/healthcare-dashboard/static/css/2.18fb2ca0.chunk.css.map",
+    "static/css/main.9cf8a415.chunk.css.map": "/healthcare-dashboard/static/css/main.9cf8a415.chunk.css.map",
+    "static/js/2.eede569d.chunk.js.LICENSE.txt": "/healthcare-dashboard/static/js/2.eede569d.chunk.js.LICENSE.txt",
+    "static/media/aditya.jpeg": "/healthcare-dashboard/static/media/aditya.dabb7594.jpeg",
+    "static/media/chia.jpeg": "/healthcare-dashboard/static/media/chia.8ae35631.jpeg",
+    "static/media/jochem.jpeg": "/healthcare-dashboard/static/media/jochem.443c2d0e.jpeg",
+    "static/media/stokala.jpeg": "/healthcare-dashboard/static/media/stokala.357b3712.jpeg",
+    "static/media/tim.jpg": "/healthcare-dashboard/static/media/tim.bd49ff31.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.db3ad30e.js",
+    "static/css/2.18fb2ca0.chunk.css",
+    "static/js/2.eede569d.chunk.js",
+    "static/css/main.9cf8a415.chunk.css",
+    "static/js/main.149fbeaa.chunk.js"
+  ]
+}
