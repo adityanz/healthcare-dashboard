@@ -1,30 +1,30 @@
 {
   "files": {
-    "main.css": "/healthcare-dashboard/static/css/main.9cf8a415.chunk.css",
-    "main.js": "/healthcare-dashboard/static/js/main.fe2bd952.chunk.js",
-    "main.js.map": "/healthcare-dashboard/static/js/main.fe2bd952.chunk.js.map",
-    "runtime-main.js": "/healthcare-dashboard/static/js/runtime-main.d8b1e7cc.js",
-    "runtime-main.js.map": "/healthcare-dashboard/static/js/runtime-main.d8b1e7cc.js.map",
-    "static/css/2.18fb2ca0.chunk.css": "/healthcare-dashboard/static/css/2.18fb2ca0.chunk.css",
-    "static/js/2.3cc3d62b.chunk.js": "/healthcare-dashboard/static/js/2.3cc3d62b.chunk.js",
-    "static/js/2.3cc3d62b.chunk.js.map": "/healthcare-dashboard/static/js/2.3cc3d62b.chunk.js.map",
-    "index.html": "/healthcare-dashboard/index.html",
-    "precache-manifest.95b24b2ca0bee4e0f8e9bb905491819d.js": "/healthcare-dashboard/precache-manifest.95b24b2ca0bee4e0f8e9bb905491819d.js",
-    "service-worker.js": "/healthcare-dashboard/service-worker.js",
-    "static/css/2.18fb2ca0.chunk.css.map": "/healthcare-dashboard/static/css/2.18fb2ca0.chunk.css.map",
-    "static/css/main.9cf8a415.chunk.css.map": "/healthcare-dashboard/static/css/main.9cf8a415.chunk.css.map",
-    "static/js/2.3cc3d62b.chunk.js.LICENSE.txt": "/healthcare-dashboard/static/js/2.3cc3d62b.chunk.js.LICENSE.txt",
-    "static/media/aditya.jpeg": "/healthcare-dashboard/static/media/aditya.dabb7594.jpeg",
-    "static/media/chia.jpeg": "/healthcare-dashboard/static/media/chia.8ae35631.jpeg",
-    "static/media/jochem.jpeg": "/healthcare-dashboard/static/media/jochem.443c2d0e.jpeg",
-    "static/media/stokala.jpeg": "/healthcare-dashboard/static/media/stokala.357b3712.jpeg",
-    "static/media/tim.jpg": "/healthcare-dashboard/static/media/tim.bd49ff31.jpg"
+    "main.css": "./static/css/main.9cf8a415.chunk.css",
+    "main.js": "./static/js/main.bbf35de7.chunk.js",
+    "main.js.map": "./static/js/main.bbf35de7.chunk.js.map",
+    "runtime-main.js": "./static/js/runtime-main.4593c922.js",
+    "runtime-main.js.map": "./static/js/runtime-main.4593c922.js.map",
+    "static/css/2.18fb2ca0.chunk.css": "./static/css/2.18fb2ca0.chunk.css",
+    "static/js/2.02c50ef6.chunk.js": "./static/js/2.02c50ef6.chunk.js",
+    "static/js/2.02c50ef6.chunk.js.map": "./static/js/2.02c50ef6.chunk.js.map",
+    "index.html": "./index.html",
+    "precache-manifest.628b8821da54ef0f550fd362628188d3.js": "./precache-manifest.628b8821da54ef0f550fd362628188d3.js",
+    "service-worker.js": "./service-worker.js",
+    "static/css/2.18fb2ca0.chunk.css.map": "./static/css/2.18fb2ca0.chunk.css.map",
+    "static/css/main.9cf8a415.chunk.css.map": "./static/css/main.9cf8a415.chunk.css.map",
+    "static/js/2.02c50ef6.chunk.js.LICENSE.txt": "./static/js/2.02c50ef6.chunk.js.LICENSE.txt",
+    "static/media/aditya.jpeg": "./static/media/aditya.dabb7594.jpeg",
+    "static/media/chia.jpeg": "./static/media/chia.8ae35631.jpeg",
+    "static/media/jochem.jpeg": "./static/media/jochem.443c2d0e.jpeg",
+    "static/media/stokala.jpeg": "./static/media/stokala.357b3712.jpeg",
+    "static/media/tim.jpg": "./static/media/tim.bd49ff31.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.d8b1e7cc.js",
+    "static/js/runtime-main.4593c922.js",
     "static/css/2.18fb2ca0.chunk.css",
-    "static/js/2.3cc3d62b.chunk.js",
+    "static/js/2.02c50ef6.chunk.js",
     "static/css/main.9cf8a415.chunk.css",
-    "static/js/main.fe2bd952.chunk.js"
+    "static/js/main.bbf35de7.chunk.js"
   ]
 }
