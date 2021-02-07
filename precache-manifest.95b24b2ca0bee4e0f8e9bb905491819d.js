@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "a8ef4f35e48e2cf9752efe107a5a84b5",
+    "revision": "ac22147e26a83eda982681dd5dd22941",
     "url": "/healthcare-dashboard/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/healthcare-dashboard/static/css/2.18fb2ca0.chunk.css"
   },
   {
-    "revision": "76e89b33509b8b4a87db",
+    "revision": "0573515bbf1a269e8db6",
     "url": "/healthcare-dashboard/static/css/main.9cf8a415.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/healthcare-dashboard/static/js/2.3cc3d62b.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "76e89b33509b8b4a87db",
-    "url": "/healthcare-dashboard/static/js/main.f3a67978.chunk.js"
+    "revision": "0573515bbf1a269e8db6",
+    "url": "/healthcare-dashboard/static/js/main.fe2bd952.chunk.js"
   },
   {
     "revision": "127916d1e0f92d704196",
